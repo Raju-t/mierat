@@ -1,0 +1,157 @@
+<md-toolbar ng-show="!showSearch" class="md-whiteframe-2dp">
+  <div class="md-toolbar-tools navbar" layout="row" layout-align="space-between center">
+    <md-button ng-click="doc.open()" aria-label="Left Menu" hide-gt-md>
+      <ng-md-icon icon="menu"></ng-md-icon>
+    </md-button>
+    <h1><a ui-sref="/">Documentation: Material CRUD</a></h1>
+  </div>
+</md-toolbar>
+
+<div layout="column" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav
+        class="doc-sidenav"
+        md-component-id="doc-sidenav"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4"
+        id="doc-sidebar">
+
+      <md-menu-content>
+        <md-list-item><h1>Installation</h1></md-list-item>
+
+        <md-divider></md-divider>
+        <md-menu-item ui-sref-active="active" ui-sref="doc.pre">
+          <md-button aria-label="Prerequisites">
+            <ng-md-icon icon="computer" md-menu-align-target></ng-md-icon>
+            Step-1. Prerequisites
+          </md-button>
+        </md-menu-item>
+
+        <md-menu-item ui-sref-active="active" ui-sref="doc.npm">
+          <md-button aria-label="Run & Deploy">
+            <ng-md-icon icon="developer_mode" md-menu-align-target></ng-md-icon>
+            Step-2. Run & Deploy
+          </md-button>
+        </md-menu-item>
+
+        <md-list-item><h1>Settings</h1></md-list-item>
+          <md-divider></md-divider>
+          <md-menu-item ui-sref-active="active" ui-sref="doc.env">
+            <md-button aria-label="Environment Settings">
+              <ng-md-icon icon="perm_data_setting" md-menu-align-target></ng-md-icon>
+              Environment Settings
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ui-sref-active="active" ui-sref="doc.database">
+            <md-button aria-label="Database Settings">
+              <ng-md-icon icon="settings_applications" md-menu-align-target></ng-md-icon>
+              Database Settings
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ui-sref-active="active" ui-sref="doc.shared">
+            <md-button aria-label="Shared Settings">
+              <ng-md-icon icon="settings_applications" md-menu-align-target></ng-md-icon>
+              Shared Settings
+            </md-button>
+          </md-menu-item>
+
+        <md-list-item><h1>Usage</h1></md-list-item>
+          <md-divider></md-divider>
+          <md-menu-item ui-sref-active="active" ui-sref="doc.use">
+            <md-button aria-label="Usage">
+              <ng-md-icon icon="mouse" md-menu-align-target></ng-md-icon>
+              Usage
+            </md-button>
+          </md-menu-item>
+         
+        <md-list-item><h1>Project Overview</h1></md-list-item>
+          <md-divider></md-divider>
+          <md-menu-item ui-sref-active="active" ui-sref="doc.root">
+            <md-button aria-label="Project Root">
+              <ng-md-icon icon="merge_type" md-menu-align-target></ng-md-icon>
+              Project Root
+            </md-button>
+          </md-menu-item>
+          <md-menu-item ui-sref-active="active" ui-sref="doc.client">
+            <md-button aria-label="Client">
+              <ng-md-icon icon="phonelink" md-menu-align-target></ng-md-icon>
+              Client
+            </md-button>
+          </md-menu-item>
+        
+          <md-menu-item ui-sref-active="active" ui-sref="doc.server">
+            <md-button aria-label="Server">
+              <ng-md-icon icon="developer_mode" md-menu-align-target></ng-md-icon>
+              Server
+            </md-button>
+          </md-menu-item>
+        
+
+      </md-menu-content>
+
+    </md-sidenav>
+
+    <md-content flex layout-padding>
+      <div layout="column" layout-align="top left">
+        <div ui-view></div>
+      </div>
+    </md-content>
+
+  </section>
+
+</div>
+
+
+<footer></footer>
+<!--
+<div layout="row" layout-align="center center">
+<div class="banner banner-floaty" layout="row" layout-align="space-around center">
+  <doc-nav></doc-nav>
+</div>
+</div>
+<md-content flex layout-padding>
+
+ <section class="doc">
+  <div layout="row" layout-align="center center">
+    <h3 class="text-headline m100">What You Get</h3>
+  </div>
+  <md-divider></md-divider>
+<div class="highlights" layout="row" layout-align="center center">
+  <div>
+    <md-list-item ng-repeat="w in doc.why" ng-if="$index%2!=0">
+        <ng-md-icon icon="{{w.i}}" style="{{w.c}}" size="30"></ng-md-icon>
+        <p cl> {{ w.h }} </p>
+    </md-list-item>
+  </div>
+  <div>
+    <md-list-item ng-repeat="w in doc.why" ng-if="$index%2==0">
+        <ng-md-icon icon="{{w.i}}" style="{{w.c}}" size="30"></ng-md-icon>
+        <p cl> {{ w.h }} </p>
+    </md-list-item>
+  </div>
+</div>
+
+<md-divider></md-divider>
+<br/>
+<br/>
+  <div layout="column" layout-align="start center">
+  <div layout="row" layout-xs="column" class="home-row layout-xs-column layout-row" ng-repeat="i in doc.topFeatures">
+    <div ng-if="$index%2==0" class="promo-img-container promo-1">
+      <div><img src="{{i.i}}"></div>
+    </div>
+    <div class="text-container">
+      <div class="text-block promo-1-desc l-pad-top-2">
+        <h3 class="text-headline">{{i.h}}</h3>
+        <p class="text-body"> {{i.p}}</p>
+      </div>
+    </div>
+    <div ng-if="$index%2==1" class="promo-img-container promo-1">
+      <div><img src="{{i.i}}"></div>
+    </div>
+  </div>
+
+</section>
+    </md-content>
+    <doc-menu></doc-menu>-->

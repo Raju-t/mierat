@@ -1,0 +1,181 @@
+<div layout="row">
+    <md-content flex layout="column">
+        <md-subheader>Generating Pages / Routes</md-subheader>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Generate ReST API Endpoints</span>
+                </md-card-title-text>
+                <md-card-content>
+                </md-card-content>
+            </md-card-title>
+            <md-card-content>
+                <ng-prism class="language-javascript">yo angular-fullstack:endpoint task</ng-prism>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Define ReST Models</span> (server/api/task/task.model.js)
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>
+                    The model defined here will automatically be migrated into database.
+                    <ng-prism class="language-javascript">return sequelize.define('Task', {
+  _id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: DataTypes.STRING,
+    info: DataTypes.STRING,
+    active: DataTypes.BOOLEAN,
+    image: DataTypes.STRING,
+    category: DataTypes.STRING,
+    updatedAt: DataTypes.STRING,
+    createdAt: DataTypes.STRING,
+    modifiedBy: DataTypes.STRING
+})
+}</ng-prism>
+                </p>
+            </md-card-content>
+        </md-card>
+
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Generate the front end route</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>
+                    <ng-prism class="language-javascript">yo angular-fullstack:route task</ng-prism>
+                </p>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Add CRUD table directive into HTML (task.html)</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <ng-prism class="language-javascript">crud-table api='task' fields='fields'</ng-prism>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Define the fields for CRUD table directive (task.controller.js)</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>
+                    <ng-prism class="language-javascript">$scope.fields = [ 
+    {field: 'image',dataType: 'image'}, 
+    {field: 'name'}, 
+    {field: 'info', noSort: true, noEdit: true}, 
+    {field: 'category', dataType: 'select', options: ['Shopping', 'Promotions', 'SEO', 'Developments']}, 
+    {field: 'active', dataType: 'boolean'} 
+];</ng-prism>
+                </p>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Optionally you may define the page title (task.js)</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>Page title can be added into the route specification</p>
+                <p>
+                    <ng-prism class="language-javascript">angular.module('materialCrudSqlApp') 
+.config(function ($stateProvider) { 
+    $stateProvider 
+    .state('task', 
+    { 
+        url: '/task', 
+        templateUrl: 'app/task/task.html', 
+        controller: 'TaskCtrl', 
+        title: 'Easy Task Manager Single Page APP' 
+    }); 
+});</ng-prism>
+                </p>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Make the route accesible only to logged in users (task.js)</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p> authenticate: true 
+                    <ng-prism class="language-javascript">angular.module('materialCrudSqlApp') 
+.config(function ($stateProvider) { 
+    $stateProvider 
+    .state('task', { 
+        url: '/task', 
+        templateUrl: 'app/task/task.html', 
+        controller: 'TaskCtrl', 
+        title: 'Easy Task Manager Single Page APP', 
+        authenticate: true 
+    }); 
+});</ng-prism>
+                </p>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Start the server</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p> 
+                    <ng-prism class="language-javascript">gulp serve</ng-prism>
+                </p>
+            </md-card-content>
+        </md-card>
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Additional Options</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p> The following options are available for CRUD table directive which enables us to control the way CRUD table
+                    be generated
+                    <br/> Add these as attributes into html tag
+                    <br/> Example:
+                    <ng-prism class="language-javascript">crud-table api='user' fields='fields' noDelete</ng-prism>
+                    <ul>
+                        <li><em>heading, title</em>: defines column title of the generated table</li>
+                        <li><em>noSort</em>: Sort option for the column will be disabled</li>
+                        <li><em>noAdd</em>: User will not be able to add a new record</li>
+                        <li><em>noEdit</em>: Edit will be disabled in the generated table</li>
+                        <li><em>noExport</em>: Export option will not be generated</li>
+                        <li><em>Data Types</em>: The following data types are available for CRUD Table directive. The add, edit,
+                            sort decisions depends on these options.
+                            <ul>
+                                <li>Default data type is <em>text</em></li>
+                                <li><em>number, numeric, float, integer</em>: The column data type will be presented as integer.
+                                    While adding or editing, the input field won't allow text or special characters</li>
+                                <li><em>calendar, date</em>: This option will restrict the column content to date. The editing
+                                    page will contain a calendar in place of simple input field</li>
+                                <li><em>multiline, textarea</em>: This will create a multiline input field for table data input</li>
+                                <li><em>dropdown, select, option</em> : This requires an additional option named 'options' which
+                                    is an array containing options that will be available to the end user</li>
+                                <li><em>image, photo, picture</em> : Accepts an image url as inoput and displays the text into
+                                    the table content</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </p>
+            </md-card-content>
+        </md-card>
+    </md-content>
+</div>

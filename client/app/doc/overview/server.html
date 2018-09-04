@@ -1,0 +1,48 @@
+<h4>Server Project Structure</h4>
+<ng-prism class="language-javascript">
+│   .eslintrc // server-specific ESLint config, imports rules from root file
+│   app.js // root server module
+│   index.js // imports `app.js`. Enables Babel require hook when in development mode.
+│   routes.js // imports / config for server endpoints
+│
+├───api
+│   ├───movie // API for Movies
+│   │       index.js // root module
+│   │       index.spec.js // root module tests
+│   │       movie.controller.js // endpoint logic
+│   │       movie.events.js // endpoint events (save, delete, etc) logic
+│   │       movie.integration.js // integration tests
+│   │       movie.model.js // MySQL data model
+│   │       movie.socket.js // Socket IO logic / config
+│   │
+│   ├───media 
+│   ├───book 
+│   ├───contact 
+│   ├───customer 
+│   ├───sendmail 
+│   ├───task 
+│   └───user 
+│
+├───auth
+│   │   auth.service.js
+│   │   index.js // imports local/oauth auth modules
+│   │
+│   ├───local // regular auth, signed up directly via your site
+│   ├───google // Google OAuth
+│   ├───facebook // Facebook OAuth
+│   └───twitter // Twitter OAuth
+│
+└───config
+    │   express.js // Express server setup
+    │   local.env.js // ignored by Git
+    │   local.env.sample.js // sensitive environment variables are stored here, and added at server start. Copy to `local.env.js`.
+    │   seed.js // seeds database with fresh data when empty
+    │   socketio.js // Socket IO configuration / imports
+    │
+    └───environment
+            development.js
+            index.js
+            production.js
+            shared.js // config constants shared with the client code
+            test.js
+</ng-prism>

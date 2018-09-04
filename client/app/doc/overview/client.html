@@ -1,0 +1,58 @@
+<h4>Client Directory Structure</h4>
+<ng-prism class="language-javascript">
+│   .jshintrc // eslint config for client files
+│   .htaccess // The Apache Configuration File
+│   <em>index.html</em> // The root HTML file of your app
+│   robots.txt // Website search rules
+|
+├───app
+│   │   settings.js // contains app-wide configuration code
+│   │   app.constant.js // gets injected with constants from `server/config/environment/shared.js`
+│   │   <em>app.js</em> // root JavaScript file of your app
+│   │   app.css // root CSS file of your app
+│   │
+│   ├───account // pages related to login / signup / user settings
+│   │   │   account.js // route information
+│   │   │
+│   │   ├───edit-profile
+│   │   └───password
+│   │
+│   ├───admin // Manager users
+│   ├───book // Example page
+│   ├───contact // Example page
+│   ├───customer // Example page
+│   ├───docu // Example page
+│   ├───main // Homepage for the CRUD App
+│   ├───media // Manage all media of the web application at one place
+│
+├───assets // where static assets are stored
+│
+└───components
+    ├───auth
+    │       auth.module.js // module containing auth components
+    │       auth.service.js // authentication service
+    │       interceptor.service.js // intercepts requests and adds tokens if needed. Also redirects 401s to the login page.
+    │       router.decorator.js // facilitates auth-based routing configuration
+    │       user.service.js // user resource service
+    │
+    ├───footer
+    ├───crud-table // Directive for database CRUD
+    ├───directives // Contains all other essential directives
+    ├───factory // This is the medium which communicates to the database 
+    ├───filters // Contains all filters of the app
+    ├───list-image // When there is no image available for an list item, it displays a nice text
+    ├───login-modal // The primary login/signup modal
+    ├───modal // The modal service
+    ├───navbar // The top navbar of application contains search + menubar
+    ├───oauth-buttons // buttons for oauth login on signup / login pages
+    ├───remote-unique // Checks uniqueness of email ID
+    ├───repeat-input // To be removed
+    ├───right-menu // To be removed
+    ├───socket // The socketio service for realtime update across all clients
+    ├───submit-button // Helper submit-button component
+    ├───toast // Message Toaster service
+    ├───toggle-component // To be removed
+    ├───top-menu // The megamenu at the top
+    ├───ui-router // UI Router helper
+    └───util // Some general utility service
+</ng-prism>

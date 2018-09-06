@@ -11,6 +11,8 @@ class CharmComponent {
       {field: 'diamond_type', title: 'Diamond Type', dataType: 'text'},
       {field: 'stone_c_weight', title: 'Diamond Type', dataType: 'number'},
       {field: 'stone_k_weight', title: 'Diamond Type', dataType: 'number'},
+      {field: 'notes', title: 'Notes', dataType: 'text'},
+      {field: 'available', title: 'Available', dataType: 'boolean'},
     ];
   }
 }

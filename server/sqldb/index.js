@@ -22,5 +22,6 @@ db.Contact = db.sequelize.import('../api/contact/contact.model');
 db.Task = db.sequelize.import('../api/task/task.model');
 db.Thing = db.sequelize.import('../api/thing/thing.model');
 db.User = db.sequelize.import('../api/user/user.model');
+db.Charm = db.sequelize.import('../api/charm/charm.model');
 
 module.exports = db;

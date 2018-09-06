@@ -2,7 +2,7 @@
 
 import routes from './center.routes';
 
-class BookComponent {
+class CenterComponent  {
   constructor($state) {
     'ngInject';
     this.fields = [

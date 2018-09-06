@@ -14,7 +14,7 @@ export default function (sequelize, DataTypes) {
     stone_ct_weight: DataTypes.FLOAT,
     stone_kt_weight: DataTypes.FLOAT,
     notes: DataTypes.TEXT,
-    available: DataTypes.TINYINT,
+    available: DataTypes.BOOLEAN,
     image: DataTypes.STRING,
     updatedAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },

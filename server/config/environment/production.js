@@ -15,7 +15,7 @@ module.exports = {
   || 8080,
 
   sequelize: {
-    uri: process.env.OPENSHIFT_MYSQL_DB_URL + process.env.OPENSHIFT_APP_NAME || process.env.CLEARDB_DATABASE_URL || process.env.JAWSDB_URL || 'mysql://root:root@localhost/crud',
+    uri: process.env.OPENSHIFT_MYSQL_DB_URL + process.env.OPENSHIFT_APP_NAME || process.env.CLEARDB_DATABASE_URL || process.env.JAWSDB_URL || 'mysql://root:raju@localhost/test',
     options: {
       logging: false,
       storage: 'dist.sqlite',

@@ -7,7 +7,8 @@ class LargeinitialComponent {
     'ngInject';
     this.fields = [
       {field: 'notes', heading: 'Notes', dataType: 'text'},
-      {field: 'available', title: 'Available', dataType: 'boolean'}
+      {field: 'available', title: 'Available', dataType: 'boolean'},
+      {field: 'image', title: 'Thumbnail', dataType: 'image'}
     ];
   }
 }

@@ -13,6 +13,7 @@ import CharmComponent from './../../app/charm/charm.component';
 import ChainComponent from './../../app/chain/chain.component';
 import CenterComponent from './../../app/center/center.component';
 import LargeinitialComponent from './../../app/largeinitial/largeinitial.component';
+import SmallinitialComponent from './../../app/smallinitial/smallinitial.component';
 
 class menuComponent {
   constructor(ToggleComponent, Auth, appConfig, LoginModal, CpModal, $state, $mdMedia) {
@@ -43,7 +44,7 @@ class menuComponent {
 }
 
 export default angular.module('materialCrudSqlApp.menu', [LoginModal, DocComponent, MediaComponent, AdminComponent,
-BookComponent, ContactComponent, TaskComponent, CustomerComponent, MovieComponent, CharmComponent, ChainComponent, CenterComponent, LargeinitialComponent])
+BookComponent, ContactComponent, TaskComponent, CustomerComponent, MovieComponent, CharmComponent, ChainComponent, CenterComponent, LargeinitialComponent, SmallinitialComponent])
   .component('menu', {
     template: `
     <md-button aria-label="Login / Signup" ng-click="$ctrl.showLogin()" ng-if="!$ctrl.isLoggedIn()">

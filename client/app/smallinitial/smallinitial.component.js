@@ -1,8 +1,8 @@
 'use strict';
 
-import routes from './largeinitial.routes';
+import routes from './smallinitial.routes';
 
-class LargeinitialComponent {
+class SmallinitialComponent {
   constructor($state) {
     'ngInject';
     this.fields = [
@@ -12,10 +12,10 @@ class LargeinitialComponent {
   }
 }
 
-export default angular.module('materialCrudSqlApp.largeinitial', [])
+export default angular.module('materialCrudSqlApp.smallinitial', [])
   .config(routes)
-  .component('largeinitial', {
-    template: require('./largeinitial.html'),
+  .component('smallinitial', {
+    template: require('./smallinitial.html'),
     controller: LargeinitialComponent,
     bindings: { }
   })

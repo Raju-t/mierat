@@ -28,14 +28,14 @@ exports = module.exports = { // Can not put all settings here as this needs a re
   },
   menu: {
     pages: [ // Main menu. The `role: manager` is only to show/hide it from the menu, this is not for authentication purpose, the user access level is controlled from the router page
-      { text: 'Books', icon: 'book', url: 'book', authenticate: true },
+      // { text: 'Books', icon: 'book', url: 'book', authenticate: true },
       { text: 'Charms', icon: 'charm', url: 'charm', authenticate: true },
-      { text: 'Movies', icon: 'movie', url: 'movie', authenticate: true },
-      { text: 'Contacts', icon: 'contacts', url: 'contact', authenticate: true },
-      { text: 'Customers', icon: 'people', url: 'customer', authenticate: true },
-      { text: 'Tasks', icon: 'assignment', url: 'task', authenticate: true },
-      { text: 'Documentation', icon: 'description', url: 'doc.pre' },
-      { text: 'Media Library', icon: 'photo_library', url: 'media', authenticate: true }
+      // { text: 'Movies', icon: 'movie', url: 'movie', authenticate: true },
+      // { text: 'Contacts', icon: 'contacts', url: 'contact', authenticate: true },
+      // { text: 'Customers', icon: 'people', url: 'customer', authenticate: true },
+      // { text: 'Tasks', icon: 'assignment', url: 'task', authenticate: true },
+      // { text: 'Documentation', icon: 'description', url: 'doc.pre' },
+      // { text: 'Media Library', icon: 'photo_library', url: 'media', authenticate: true }
     ],
     user: [ // Separate panel for user management tasks for both admin and user
       { text: 'Users', url: 'admin', authenticate: true, role: 'admin', icon: 'perm_identity' },

@@ -6,10 +6,10 @@
 
 import {EventEmitter} from 'events';
 var Center = require('../../sqldb').Center;
-var BookEvents = new EventEmitter();
+var CenterEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-BookEvents.setMaxListeners(0);
+CenterEvents.setMaxListeners(0);
 
 // Model events
 var events = {
@@ -26,10 +26,10 @@ for(var e in events) {
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    BookEvents.emit(event + ':' + doc._id, doc);
-    BookEvents.emit(event, doc);
+    CenterEvents.emit(event + ':' + doc._id, doc);
+    CenterEvents.emit(event, doc);
     done(null);
   };
 }
 
-export default BookEvents;
+export default CenterEvents;

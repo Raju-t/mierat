@@ -23,6 +23,11 @@ function onConnect(socket) {
   require('../api/task/task.socket').register(socket);
   require('../api/book/book.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
+  require('../api/charm/charm.socket').register(socket);
+  require('../api/chain/chain.socket').register(socket);
+  require('../api/center/center.socket').register(socket);
+  require('../api/largeinitial/largeinitial.socket').register(socket);
+  require('../api/smallinitial/smallinitial.socket').register(socket);
 }
 
 export default function(socketio) {

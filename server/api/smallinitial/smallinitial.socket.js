@@ -4,7 +4,7 @@
 
 'use strict';
 
-import BookEvents from './smallinitial.events';
+import SmallEvents from './smallinitial.events';
 
 // Model events to emit
 var events = ['save', 'remove'];
@@ -15,7 +15,7 @@ export function register(socket) {
     var event = events[i];
     var listener = createListener(`smallinitial:${event}`, socket);
 
-    BookEvents.on(event, listener);
+    SmallEvents.on(event, listener);
     socket.on('disconnect', removeListener(event, listener));
   }
 }
@@ -29,6 +29,6 @@ function createListener(event, socket) {
 
 function removeListener(event, listener) {
   return function() {
-    BookEvents.removeListener(event, listener);
+    SmallEvents.removeListener(event, listener);
   };
 }

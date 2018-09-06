@@ -6,10 +6,10 @@
 
 import {EventEmitter} from 'events';
 var Charm = require('../../sqldb').Charm;
-var BookEvents = new EventEmitter();
+var CharmEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-BookEvents.setMaxListeners(0);
+CharmEvents.setMaxListeners(0);
 
 // Model events
 var events = {
@@ -26,10 +26,10 @@ for(var e in events) {
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    BookEvents.emit(event + ':' + doc._id, doc);
-    BookEvents.emit(event, doc);
+    CharmEvents.emit(event + ':' + doc._id, doc);
+    CharmEvents.emit(event, doc);
     done(null);
   };
 }
 
-export default BookEvents;
+export default CharmEvents;

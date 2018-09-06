@@ -4,7 +4,7 @@
 
 'use strict';
 
-import BookEvents from './charm.events';
+import CharmEvents from './charm.events';
 
 // Model events to emit
 var events = ['save', 'remove'];
@@ -15,7 +15,7 @@ export function register(socket) {
     var event = events[i];
     var listener = createListener(`charm:${event}`, socket);
 
-    BookEvents.on(event, listener);
+    CharmEvents.on(event, listener);
     socket.on('disconnect', removeListener(event, listener));
   }
 }
@@ -29,6 +29,6 @@ function createListener(event, socket) {
 
 function removeListener(event, listener) {
   return function() {
-    BookEvents.removeListener(event, listener);
+    CharmEvents.removeListener(event, listener);
   };
 }

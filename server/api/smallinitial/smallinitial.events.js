@@ -6,10 +6,10 @@
 
 import {EventEmitter} from 'events';
 var Smallinitial = require('../../sqldb').Smallinitial;
-var BookEvents = new EventEmitter();
+var SmallEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-BookEvents.setMaxListeners(0);
+SmallEvents.setMaxListeners(0);
 
 // Model events
 var events = {
@@ -26,10 +26,10 @@ for(var e in events) {
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    BookEvents.emit(event + ':' + doc._id, doc);
-    BookEvents.emit(event, doc);
+    SmallEvents.emit(event + ':' + doc._id, doc);
+    SmallEvents.emit(event, doc);
     done(null);
   };
 }
 
-export default BookEvents;
+export default SmallEvents;

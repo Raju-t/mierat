@@ -18,7 +18,7 @@ export default function(app) {
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
   app.use('/api/sendmail', require('./api/sendmail'));
-  app.use('/api/charm', require('./api/charm'));
+  app.use('/api/charms', require('./api/charm'));
 
   app.use('/auth', require('./auth').default);
 

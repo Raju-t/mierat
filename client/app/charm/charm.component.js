@@ -19,7 +19,7 @@ export default angular.module('materialCrudSqlApp.charm', [])
   .config(routes)
   .component('charm', {
     template: require('./charm.html'),
-    controller: BookComponent,
+    controller: CharmComponent,
     bindings: { }
   })
   .name

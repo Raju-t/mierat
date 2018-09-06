@@ -2,7 +2,7 @@
 
 import routes from './chain.routes';
 
-class BookComponent {
+class ChainComponent  {
   constructor($state) {
     'ngInject';
     this.fields = [

@@ -17,7 +17,7 @@ export default angular.module('materialCrudSqlApp.chain', [])
   .config(routes)
   .component('chain', {
     template: require('./chain.html'),
-    controller: BookComponent,
+    controller: ChainComponent,
     bindings: { }
   })
   .name

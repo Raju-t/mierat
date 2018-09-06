@@ -19,6 +19,10 @@ export default function(app) {
   app.use('/api/users', require('./api/user'));
   app.use('/api/sendmail', require('./api/sendmail'));
   app.use('/api/charms', require('./api/charm'));
+  app.use('/api/chains', require('./api/chain'));
+  app.use('/api/centers', require('./api/center'));
+  app.use('/api/largeinitials', require('./api/largeinitial'));
+  app.use('/api/smallinitials', require('./api/smallinitial'));
 
   app.use('/auth', require('./auth').default);
 

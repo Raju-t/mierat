@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/charms              ->  index
- * POST    /api/charms              ->  create
- * GET     /api/charms/:id          ->  show
- * PUT     /api/charms/:id          ->  upsert
- * PATCH   /api/charms/:id          ->  patch
- * DELETE  /api/charms/:id          ->  destroy
+ * GET     /api/smallinitials              ->  index
+ * POST    /api/smallinitials              ->  create
+ * GET     /api/smallinitials/:id          ->  show
+ * PUT     /api/smallinitials/:id          ->  upsert
+ * PATCH   /api/smallinitials/:id          ->  patch
+ * DELETE  /api/smallinitials/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import {Charm} from '../../sqldb';
+import {Smallinitial} from '../../sqldb';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -63,16 +63,16 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Charms
+// Gets a list of Smallinitials
 export function index(req, res) {
-  return Charm.findAll()
+  return Smallinitial.findAll()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Charm from the DB
+// Gets a single Smallinitial from the DB
 export function show(req, res) {
-  return Charm.find({
+  return Smallinitial.find({
     where: {
       _id: req.params.id
     }
@@ -82,20 +82,20 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-// Creates a new Charm in the DB
+// Creates a new Smallinitial in the DB
 export function create(req, res) {
-  return Charm.create(req.body)
+  return Smallinitial.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Upserts the given Charm in the DB at the specified ID
+// Upserts the given Smallinitial in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
 
-  return Charm.upsert(req.body, {
+  return Smallinitial.upsert(req.body, {
     where: {
       _id: req.params.id
     }
@@ -104,12 +104,12 @@ export function upsert(req, res) {
     .catch(handleError(res));
 }
 
-// Updates an existing Charm in the DB
+// Updates an existing Smallinitial in the DB
 export function patch(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Charm.find({
+  return Smallinitial.find({
     where: {
       _id: req.params.id
     }
@@ -120,9 +120,9 @@ export function patch(req, res) {
     .catch(handleError(res));
 }
 
-// Deletes a Charm from the DB
+// Deletes a Smallinitial from the DB
 export function destroy(req, res) {
-  return Charm.find({
+  return Smallinitial.find({
     where: {
       _id: req.params.id
     }

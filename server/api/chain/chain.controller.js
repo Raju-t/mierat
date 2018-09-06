@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/charms              ->  index
- * POST    /api/charms              ->  create
- * GET     /api/charms/:id          ->  show
- * PUT     /api/charms/:id          ->  upsert
- * PATCH   /api/charms/:id          ->  patch
- * DELETE  /api/charms/:id          ->  destroy
+ * GET     /api/chains              ->  index
+ * POST    /api/chains              ->  create
+ * GET     /api/chains/:id          ->  show
+ * PUT     /api/chains/:id          ->  upsert
+ * PATCH   /api/chains/:id          ->  patch
+ * DELETE  /api/chains/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import {Charm} from '../../sqldb';
+import {Chain} from '../../sqldb';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -63,16 +63,16 @@ function handleError(res, statusCode) {
   };
 }
 
-// Gets a list of Charms
+// Gets a list of Chains
 export function index(req, res) {
-  return Charm.findAll()
+  return Chain.findAll()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 
-// Gets a single Charm from the DB
+// Gets a single Chain from the DB
 export function show(req, res) {
-  return Charm.find({
+  return Chain.find({
     where: {
       _id: req.params.id
     }
@@ -82,20 +82,20 @@ export function show(req, res) {
     .catch(handleError(res));
 }
 
-// Creates a new Charm in the DB
+// Creates a new Chain in the DB
 export function create(req, res) {
-  return Charm.create(req.body)
+  return Chain.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Upserts the given Charm in the DB at the specified ID
+// Upserts the given Chain in the DB at the specified ID
 export function upsert(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
 
-  return Charm.upsert(req.body, {
+  return Chain.upsert(req.body, {
     where: {
       _id: req.params.id
     }
@@ -104,12 +104,12 @@ export function upsert(req, res) {
     .catch(handleError(res));
 }
 
-// Updates an existing Charm in the DB
+// Updates an existing Chain in the DB
 export function patch(req, res) {
   if(req.body._id) {
     delete req.body._id;
   }
-  return Charm.find({
+  return Chain.find({
     where: {
       _id: req.params.id
     }
@@ -120,9 +120,9 @@ export function patch(req, res) {
     .catch(handleError(res));
 }
 
-// Deletes a Charm from the DB
+// Deletes a Chain from the DB
 export function destroy(req, res) {
-  return Charm.find({
+  return Chain.find({
     where: {
       _id: req.params.id
     }

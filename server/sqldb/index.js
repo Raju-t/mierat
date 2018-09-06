@@ -23,5 +23,9 @@ db.Task = db.sequelize.import('../api/task/task.model');
 db.Thing = db.sequelize.import('../api/thing/thing.model');
 db.User = db.sequelize.import('../api/user/user.model');
 db.Charm = db.sequelize.import('../api/charm/charm.model');
+db.Chain = db.sequelize.import('../api/chain/chain.model');
+db.Center = db.sequelize.import('../api/center/center.model');
+db.Largeinitial = db.sequelize.import('../api/largeinitial/largeinitial.model');
+db.Smallinitial = db.sequelize.import('../api/smallinitial/smallinitial.model');
 
 module.exports = db;

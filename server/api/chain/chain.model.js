@@ -11,7 +11,6 @@ export default function (sequelize, DataTypes) {
     color: DataTypes.STRING,
     notes: DataTypes.STRING,
     available: DataTypes.BOOLEAN,
-    category: DataTypes.STRING,
     image: DataTypes.STRING,
     updatedAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },

@@ -10,6 +10,7 @@ import TaskComponent from './../../app/task/task.component';
 import CustomerComponent from './../../app/customer/customer.component';
 import MovieComponent from './../../app/movie/movie.component';
 import CharmComponent from './../../app/charm/charm.component';
+import ChainComponent from './../../app/chain/chain.component';
 
 class menuComponent {
   constructor(ToggleComponent, Auth, appConfig, LoginModal, CpModal, $state, $mdMedia) {
@@ -40,7 +41,7 @@ class menuComponent {
 }
 
 export default angular.module('materialCrudSqlApp.menu', [LoginModal, DocComponent, MediaComponent, AdminComponent,
-BookComponent, ContactComponent, TaskComponent, CustomerComponent, MovieComponent, CharmComponent])
+BookComponent, ContactComponent, TaskComponent, CustomerComponent, MovieComponent, CharmComponent, ChainComponent])
   .component('menu', {
     template: `
     <md-button aria-label="Login / Signup" ng-click="$ctrl.showLogin()" ng-if="!$ctrl.isLoggedIn()">

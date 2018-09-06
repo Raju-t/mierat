@@ -16,7 +16,7 @@ export default angular.module('materialCrudSqlApp.smallinitial', [])
   .config(routes)
   .component('smallinitial', {
     template: require('./smallinitial.html'),
-    controller: LargeinitialComponent,
+    controller: SmallinitialComponent,
     bindings: { }
   })
   .name

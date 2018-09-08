@@ -24,7 +24,6 @@ import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
 import main from './main/main.component';
 
-import './app.scss';
 
 angular.module('materialCrudSqlApp', ['btford.socket-io', _Auth, account, navbar, footer, main, constants, socket, util, ngMaterial, ngMdIcons
   ])

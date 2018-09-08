@@ -3,7 +3,7 @@
 		<md-button ui-sref="{{detail.path}}" aria-label="Close detail view">
 			<ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
 		</md-button>
-		<h3>Edit {{detail.header | labelCase}} - {{detail.item._id}}</h3>
+		<h3>Edit {{detail.name ? detail.name : detail.header | labelCase }} - {{detail.item._id}}</h3>
 		<md-button aria-label="-">
 		</md-button>
 	</span>

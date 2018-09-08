@@ -83,7 +83,7 @@ export default angular.module('mcrud.crud', [crudList, factory])
 <md-content flex layout="column" class="content" md-no-flicker md-no-momentum>
 <section layout="row">
     <div layout="column" flex>
-      <crud-list api="$ctrl.api" fields="$ctrl.cols" sort="$ctrl.sort" no="$ctrl.no" path="$ctrl.path"></crud-list>
+      <crud-list name="$ctrl.name" api="$ctrl.api" fields="$ctrl.cols" sort="$ctrl.sort" no="$ctrl.no" path="$ctrl.path"></crud-list>
     </div>
     <md-content ng-show="$ctrl.$state.includes('crud.detail')"
       ui-view
@@ -101,6 +101,6 @@ export default angular.module('mcrud.crud', [crudList, factory])
 </md-content>
 `,
     controller: CrudComponent,
-    bindings: { api: '@', fields: '<', path: '@', sort: '@', no: '<' }
+    bindings: { api: '@', fields: '<', path: '@', sort: '@', no: '<', name: '=' }
   })
   .name

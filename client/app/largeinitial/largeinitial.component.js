@@ -10,6 +10,8 @@ class LargeinitialComponent {
       {field: 'available', title: 'Available', dataType: 'boolean'},
       {field: 'image', title: 'Thumbnail', dataType: 'image'}
     ];
+    this.name = 'Large Initial';
+    window.document.title = this.name+'s';
   }
 }
 

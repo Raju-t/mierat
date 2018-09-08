@@ -76,6 +76,7 @@ function ModalController($mdDialog, Toast, $http, options, cols, appConfig, $fil
 	vm.options = options;
 	vm.options.columns = cols;
 	vm.title = options.api;
+	vm.name = options.name;
 	function createUser(form) {
 		if (!vm.item) {
 			Toast.show({ type: 'success', text: options.api + ' information insufficient.' });
@@ -90,7 +91,8 @@ function ModalController($mdDialog, Toast, $http, options, cols, appConfig, $fil
 			.catch(createUserCatch);
 		function createUserSuccess(response) {
 			var item = vm.item = response.data;
-			Toast.show({ type: 'success', text: 'New ' + options.api + ' saved successfully.' });
+			var text = options.name ? options.name : options.api;
+			Toast.show({ type: 'success', text: 'New ' + text + ' saved successfully.' });
 			vm.close();
 		}
 

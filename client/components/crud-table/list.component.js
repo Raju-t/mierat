@@ -58,7 +58,7 @@ class CrudListController {
   }
   create() {
     var vm = this;
-    vm.Modal.create(vm.cols, { api: vm.api });
+    vm.Modal.create(vm.cols, { api: vm.api, name: vm.name });
     if (vm.$state.current.name !== vm.api) {
       vm.$state.go(vm.api)
     }
@@ -130,6 +130,6 @@ export default angular.module('mcrud.crudList', [modal, filters, crudDetail, exp
     template: require('./list.html'),
     controller: CrudListController,
     controllerAs: 'list',
-    bindings: { api: '<', path: '<', fields: '<', sort: '<', no: '<' }
+    bindings: { api: '<', path: '<', fields: '<', sort: '<', no: '<', name: '=' }
   })
   .name;

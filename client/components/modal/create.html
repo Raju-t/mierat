@@ -8,7 +8,7 @@ class="md-whiteframe-z1">
 
 	<md-toolbar class="md-accent">
 		<h3 class="md-toolbar-tools">
-			Create a new {{create.title}}
+			Create a new {{create.name ? create.name : create.title}}
 		</h3>
 	</md-toolbar>
 		<form name="createForm" layout="column" layout-fill layout-align="space-between" ng-submit="create.create(createForm)" novalidate  autocomplete="off">

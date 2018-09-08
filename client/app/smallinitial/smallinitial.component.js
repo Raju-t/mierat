@@ -10,6 +10,8 @@ class SmallinitialComponent {
       {field: 'available', title: 'Available', dataType: 'boolean'},
       {field: 'image', title: 'Thumbnail', dataType: 'image'}
     ];
+    this.name = 'Small Initial';
+    window.document.title = this.name+'s';
   }
 }
 

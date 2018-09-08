@@ -90,7 +90,7 @@
 											<span ng-if="!crud[c.field]">
 												<list-image string="{{crud.list.name}}"></list-image>
 											</span>
-											<img class="list-image" ng-if="crud[c.field]" ng-src="{{crud[c.field]}}" err-src="/assets/images/material-shop.jpg" />
+											<img ng-click="list.imageDetails({path: crud[c.field]})" class="list-image" ng-if="crud[c.field]" ng-src="{{crud[c.field]}}" err-src="/assets/images/material-shop.jpg" />
 										</span>
 										<span ng-switch-default>
 											{{crud[c.field]}}

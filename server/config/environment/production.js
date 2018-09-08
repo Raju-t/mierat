@@ -28,7 +28,7 @@ module.exports = {
     clientID: '237652726899449',
     clientSecret: '291958785739139edefb997e64f0aa37',
     callbackURL: 'http://18.222.99.22/auth/facebook/callback'
-  }
+  },
   // Seed database on startup
   seedDB: true
 };

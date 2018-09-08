@@ -24,6 +24,7 @@ import util from '../components/util/util.module';
 import socket from '../components/socket/socket.service';
 import main from './main/main.component';
 
+import './app.scss';
 
 angular.module('materialCrudSqlApp', ['btford.socket-io', _Auth, account, navbar, footer, main, constants, socket, util, ngMaterial, ngMdIcons
   ])
@@ -34,9 +35,12 @@ angular.module('materialCrudSqlApp', ['btford.socket-io', _Auth, account, navbar
    
     // Inject Material CRUD into title
     $rootScope.$on('$stateChangeSuccess', function (evt, toState) {
-      if(toState.title){
+      if(toState.name == '/'){
+        window.document.title = 'Home - Meira T Design';
+      }
+      else if(toState.title){
         window.document.title = toState.title + ' - Meira T Design';
-      }else if(toState.name != 'crud.detail'){
+      } else if(toState.name != 'crud.detail' && toState.name != 'crud.showdetail'){
         var input = toState.name;
         input = input.replace(/([A-Z])/g, ' $1');
         input = input[0].toUpperCase() + input.slice(1);

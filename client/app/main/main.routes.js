@@ -6,6 +6,6 @@ export default function($stateProvider) {
     .state('/', {
       url: '/',
       template: '<main></main>',
-      title:'MySQL Based Material Designed CRUD Table'
+      title:'Meira T Design'
     });
 }

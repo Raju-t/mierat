@@ -35,12 +35,12 @@ angular.module('materialCrudSqlApp', ['btford.socket-io', _Auth, account, navbar
     // Inject Material CRUD into title
     $rootScope.$on('$stateChangeSuccess', function (evt, toState) {
       if(toState.title){
-        window.document.title = toState.title + ' - Material CRUD';
+        window.document.title = toState.title + ' - Meira T Design';
       }else if(toState.name != 'crud.detail'){
         var input = toState.name;
         input = input.replace(/([A-Z])/g, ' $1');
         input = input[0].toUpperCase() + input.slice(1);
-        window.document.title = input + ' - Material CRUD';
+        window.document.title = input + ' - Meira T Design';
       }
     });
   });

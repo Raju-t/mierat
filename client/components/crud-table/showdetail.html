@@ -18,27 +18,27 @@
 			<span layout="row" layout-sm="column" ng-repeat="i in showdetail.columns track by $index" ng-if="showdetail.columns" ng-switch="i.dataType">
 				<md-list>
 					<md-list-item ng-switch-when="parseFloat">
-						<label>{{i.heading | labelCase}}: </label>
+						<label><strong>{{i.heading | labelCase}}: </strong></label>
 						<span>{{showdetail.item[i.field]}}</span>
 					</md-list-item>
 					<md-list-item ng-switch-when="link">
-						<label>{{i.heading | labelCase}}: </label>
+						<label><strong>{{i.heading | labelCase}}: </strong></label>
 						<span>{{showdetail.item[i.field]}}</span>
 					</md-list-item>
 					<md-list-item ng-switch-when="array">
-						<label>{{i.heading | labelCase}}: </label>
+						<label><strong>{{i.heading | labelCase}}: </strong></label>
 						<span>{{showdetail.item[i.field]}}</span>
 					</md-list-item>
 					<md-list-item ng-switch-when="text">
-						<label>{{i.heading | labelCase}}: </label>
+						<label><strong>{{i.heading | labelCase}}: </strong></label>
 						<span>{{showdetail.item[i.field]}}</span>
 					</md-list-item>
 					<md-list-item ng-switch-when="image">
-						<label>Image</label>
-						<img ng-src="{{showdetail.item[i.field]}}" ng-click="showdetail.mediaLibrary(i)">
+						<label><strong>Image</strong></label>
+						<img style="margin-left:20px;" ng-src="{{showdetail.item[i.field]}}" ng-click="showdetail.mediaLibrary(i)">
 					</md-list-item>
 					<md-list-item ng-switch-when="boolean">
-						<label>{{i.heading | labelCase}}: </label>
+						<label><strong>{{i.heading | labelCase}}: </strong></label>
 						<span>{{showdetail.item[i.field] ? 'Available' : 'Not Available'}}</span>
 					</md-list-item>
 				</md-list>

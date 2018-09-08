@@ -25,10 +25,7 @@ export default angular.module('components.footer', [contactForm, submitButton])
     template: `
     <div class="footer">
       <div class="footer-content" layout="row" layout-align="center center">
-        <div layout-align="start center">Material CRUD v-2.0.1 | Crafted by <a href="http://codenx.com" target="_blank">CodeNx</a> 
-        | <a ng-click="$ctrl.commentDialog()" href="#">Quick Contact</a>
-        | <a ui-sref="doc.pre" href="#">Documentation</a>
-        </div>
+        
       </div>
     </div>
     <!--Container for md-toast-->

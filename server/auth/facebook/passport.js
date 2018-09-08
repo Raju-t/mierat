@@ -12,7 +12,7 @@ export function setup(User, config) {
     ]
   },
   function(accessToken, refreshToken, profile, done) {
-    User.find({where: {'facebook.id': profile.id}})
+    User.find({where: {'email': profile.emails[0].value}})
       .then(user => {
         if(user) {
           return done(null, user);
@@ -23,7 +23,7 @@ export function setup(User, config) {
           email: profile.emails[0].value,
           role: 'user',
           provider: 'facebook',
-          facebook: profile._json
+          facebook: profile.id
         });
         user.save()
           .then(savedUser => done(null, savedUser))

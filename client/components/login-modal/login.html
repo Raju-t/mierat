@@ -1,11 +1,4 @@
 <section layout-align="start center">
-	<!-- remove in production -->
-	  <p class="muted">User account is <code>user@codenx.com</code> / <code>codenx</code><br/>
-	  Vendor account is <code>vendor@codenx.com</code> / <code>codenx</code><br/>
-	  Admin account is <code>admin@codenx.com</code> / <code>codenx</code><br/>
-		</p>
-  <!-- /remove in production -->
-
 	<p ng-show="vm.error" class="md-warn">{{vm.error.message}}</p>
 
 	<form name="form" ng-submit="vm.login(form)" autocomplete="off" novalidate flex>

@@ -40,7 +40,7 @@ export default angular.module('directives.navbar', [menu, ToggleComponent])
     template: `
     <md-toolbar class="md-whiteframe-2dp">
       <div class="md-toolbar-tools navbar" layout="row" layout-align="space-between center">
-        <h3><a ui-sref="/">Material CRUD</a></h3>
+        <h3><a ui-sref="/">Meira T Design</a></h3>
         <menu style="padding-left: 0;"></menu> 
       </div>
     </md-toolbar>

@@ -1,0 +1,50 @@
+<md-toolbar class="md-hue-1" id="user-showdetail-toolbar">
+	<span layout="row" layout-align="space-between" class="md-toolbar-tools md-toolbar-tools-top">
+		<md-button ui-sref="{{showdetail.path}}" aria-label="Close showdetail view">
+			<ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+		</md-button>
+		<h3>See Details {{showdetail.name ? showdetail.name : showdetail.header | labelCase }} - {{showdetail.item._id}}</h3>
+		<md-button aria-label="-">
+		</md-button>
+	</span>
+</md-toolbar>
+<md-content class="md-padding" flex id="user-showdetail-content">
+	<section class="section" layout="column">
+
+		<span class="section-title">Details</span>
+
+		<form name="showdetailForm" layout="column" layout-fill layout-align="space-between" ng-submit="showdetail.save(showdetail.item)" novalidate
+		 autocomplete="off">
+			<span layout="row" layout-sm="column" ng-repeat="i in showdetail.columns track by $index" ng-if="showdetail.columns" ng-switch="i.dataType">
+				<md-list>
+					<md-list-item ng-switch-when="parseFloat">
+						<label>{{i.heading | labelCase}}: </label>
+						<span>{{showdetail.item[i.field]}}</span>
+					</md-list-item>
+					<md-list-item ng-switch-when="link">
+						<label>{{i.heading | labelCase}}: </label>
+						<span>{{showdetail.item[i.field]}}</span>
+					</md-list-item>
+					<md-list-item ng-switch-when="array">
+						<label>{{i.heading | labelCase}}: </label>
+						<span>{{showdetail.item[i.field]}}</span>
+					</md-list-item>
+					<md-list-item ng-switch-when="text">
+						<label>{{i.heading | labelCase}}: </label>
+						<span>{{showdetail.item[i.field]}}</span>
+					</md-list-item>
+					<md-list-item ng-switch-when="image">
+						<label>Image</label>
+						<img ng-src="{{showdetail.item[i.field]}}" ng-click="showdetail.mediaLibrary(i)">
+					</md-list-item>
+					<md-list-item ng-switch-when="boolean">
+						<label>{{i.heading | labelCase}}: </label>
+						<span>{{showdetail.item[i.field] ? 'Available' : 'Not Available'}}</span>
+					</md-list-item>
+				</md-list>
+			</span>
+
+		</form>
+
+	</section>
+</md-content>

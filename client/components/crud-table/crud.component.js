@@ -97,6 +97,18 @@ export default angular.module('mcrud.crud', [crudList, factory])
       class="md-whiteframe-z1"
       md-no-flicker md-no-momentum>
     </md-content>
+    <md-content ng-show="$ctrl.$state.includes('crud.showdetail')"
+      ui-view
+      id="detail-content"
+      layout="column"
+      flex-xs="100"
+      flex-sm = "90"
+      flex-md="90"
+      flex-lg="66"
+      flex-gt-lg="66"
+      class="md-whiteframe-z1"
+      md-no-flicker md-no-momentum>
+    </md-content>
 </section>
 </md-content>
 `,

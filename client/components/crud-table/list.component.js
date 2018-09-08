@@ -3,6 +3,7 @@
 import modal from '../modal/modal.service';
 import filters from '../filters/filters.filter';
 import crudDetail from './detail.component';
+import crudShowDetail from './showdetail.component';
 import exportButton from '../export-data/export-data.component';
 import listImage from '../list-image/';
 import ngInfiniteScroll from 'ng-infinite-scroll';
@@ -125,7 +126,7 @@ class CrudListController {
   }
 }
 
-export default angular.module('mcrud.crudList', [modal, filters, crudDetail, exportButton, ngInfiniteScroll, listImage])
+export default angular.module('mcrud.crudList', [modal, filters, crudDetail, crudShowDetail, exportButton, ngInfiniteScroll, listImage])
   .component('crudList', {
     template: require('./list.html'),
     controller: CrudListController,

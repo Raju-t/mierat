@@ -63,6 +63,11 @@
 											<md-tooltip>Edit {{list.api | labelCase}} info</md-tooltip>
 											<ng-md-icon icon="edit"></ng-md-icon>
 										</md-button>
+										<!-- <md-button class="md-icon-button" aria-label="More" ui-sref="crud.showdetail({itemId: crud._id, api: list.api, path:list.path, columns: list.cols, name: list.name})"
+										 ng-if="true">
+											<md-tooltip>See {{list.api | labelCase}} info</md-tooltip>
+											<ng-md-icon icon="list"></ng-md-icon>
+										</md-button> -->
 									</td>
 									<td ng-repeat="c in list.cols track by $index" ng-switch="c.dataType">
 										{{c.sort}}

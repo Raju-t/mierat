@@ -1,9 +1,10 @@
 'use strict';
 
 import filters from '../filters/filters.filter';
+import ngFileUpload from 'ng-file-upload';
 
 export default angular
-	.module('materialCrudSqlApp.modal', [filters])
+	.module('materialCrudSqlApp.modal', [filters, ngFileUpload])
 	.factory('Modal', Modal)
 	.controller('ModalController', ModalController)
 	.name;
@@ -68,7 +69,7 @@ function MediaController($scope, $mdDialog, $http, socket, $state) {
 	}
 }
 
-function ModalController($mdDialog, Toast, $http, options, cols, appConfig, $filter) {
+function ModalController($mdDialog, Toast, $http, options, cols, appConfig, $filter, Upload) {
 	var vm = this;
 	vm.create = createUser;
 	vm.close = hideDialog;
@@ -77,6 +78,7 @@ function ModalController($mdDialog, Toast, $http, options, cols, appConfig, $fil
 	vm.options.columns = cols;
 	vm.title = options.api;
 	vm.name = options.name;
+	vm.Upload = Upload;
 	function createUser(form) {
 		if (!vm.item) {
 			Toast.show({ type: 'success', text: options.api + ' information insufficient.' });
@@ -108,4 +110,34 @@ function ModalController($mdDialog, Toast, $http, options, cols, appConfig, $fil
 	function cancelDialog() {
 		$mdDialog.cancel();
 	}
+
+	vm.uploadFiles = function(file){
+		console.log("File", file);
+	    if (!file.$error) {
+	        vm.Upload.upload({
+	            url: 'api/media',
+	            data: {
+	              // username: vm.username,
+	              file: file[0]
+	            }
+	        }).then(function (resp) {
+	           if(!vm.item){
+	           	  vm.item = {};
+	           }
+	           vm.item['image'] = window.location.origin + '/' + resp.data.path;
+	        }, function (response) {
+	            if (response.status > 0) {
+	                vm.errorMsg = response.status + ': ' + response.data;
+	            }
+	        }, function (evt) {
+	            var progressPercentage = parseInt(100.0 *
+	                evt.loaded / evt.total);
+	            vm.log = 'progress: ' + progressPercentage +
+	              '% ' + evt.config.data.file.name + '\n' +
+	              vm.log;
+	            vm.progress =
+	                  Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+	        });
+	      }
+	  }
 }

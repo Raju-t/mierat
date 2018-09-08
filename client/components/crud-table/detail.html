@@ -31,8 +31,25 @@
 
 				<md-input-container md-no-float class="md-block" flex ng-switch-when="image">
 					<label>{{i.heading | labelCase}} URL</label>
+					<img style="max-height: 100px; max-width:100px;margin-top: 10px;" src="{{detail.item[i.field]}}"/>
 					<input name="{{i.field}}" ng-model="detail.item[i.field]" ng-disabled="i.noEdit" md-autofocus="$index === 0">
-					<ng-md-icon icon="insert_photo" ng-click="detail.mediaLibrary(i)"></ng-md-icon>
+					<br/>
+					<div style="position:absolute;margin-top:30px;" layout="column">
+						<div ngf-drop ngf-select="detail.uploadFiles($files)" ngf-select ng-model="detail.files" class="drop-box"
+								ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+								accept="image/*"
+								ngf-pattern="'image/*'">
+							<md-button tabindex="0"
+							class="md-button md-default-theme md-warn md-raised"
+							ngf-multiple="true"
+							aria-label="Open file select panel">
+								<ng-md-icon icon="cloud"></ng-md-icon> Select Files
+							</md-button>
+						</div>
+
+						<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+						<pre ng-if="detail.files[0].$error">Upload Log: {{f.$error}} {{f.$errorParam}}</pre>
+					</div>
 				</md-input-container>
 
 				<md-input-container flex ng-switch-when="boolean">

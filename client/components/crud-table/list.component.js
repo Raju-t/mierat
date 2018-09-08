@@ -57,6 +57,79 @@ class CrudListController {
   loadMore() {
     this.l = this.l + 10;
   }
+
+  imageDetails (img) {
+  this.$mdDialog.show({
+    template: `
+    <md-dialog aria-label="Image Details Dialog">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Media Details</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+        <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <div layout="row" class="md-whiteframe-z2">
+        <div class="flexbox-container">
+          <div>
+            <img ng-src="{{$ctrl.img.path}}" draggable="false" alt="{{$ctrl.img.name}}" class="detail-image"/>
+          </div>
+        </div>
+      </div>
+  </md-dialog-content>
+</md-dialog>
+`,
+    controller: function($scope, $mdDialog,$http) {
+        'ngInject'
+      
+        var vm = this;
+        vm.img = img;
+        // vm.img = img;
+        vm.delete = function(img){
+          var confirm = $mdDialog.confirm()
+            .title('Would you like to delete the media permanently?')
+            .textContent('Media once deleted can not be undone.')
+            .ariaLabel('Delete Media')
+            .ok('Please do it!')
+            .cancel('Cancel');
+          $mdDialog.show(confirm).then(function() {
+            $http.delete('/api/media/' + img._id).then(function() {
+              $mdDialog.hide();
+            },()=>{if(error.status === 403){
+              vm.Toast.show({
+                type: 'error',
+                text: 'Not authorised to make changes.'
+              });
+            }
+            else{
+              vm.Toast.show({
+                type: 'error',
+                text: error.status
+              });
+            }});
+          }, function() {
+            $mdDialog.hide();
+          });
+        }
+        vm.hide = function() {
+            $mdDialog.hide();
+        };
+        vm.cancel = function() {
+            $mdDialog.cancel();
+        };
+    },
+    controllerAs: '$ctrl'
+  }).then(function(answer) {
+    // this.alert = 'You said the information was "' + answer + '".';
+  }, function() {
+    // this.alert = 'You cancelled the dialog.';
+  });
+  }
+
   create() {
     var vm = this;
     vm.Modal.create(vm.cols, { api: vm.api, name: vm.name });

@@ -1,10 +1,11 @@
 'use strict';
 
 import filters from '../filters/filters.filter';
+import ngFileUpload from 'ng-file-upload';
 
 class CrudDetailController {
 /*@ngInject*/
-  constructor($state, Toast, Modal, $stateParams, appConfig, $mdDialog, socket, $scope, $filter, $http){
+  constructor($state, Toast, Modal, $stateParams, appConfig, $mdDialog, socket, $scope, $filter, $http, Upload){
     var vm = this;
     vm.myDate = new Date();
     vm.header = vm.api;
@@ -23,7 +24,56 @@ class CrudDetailController {
     vm.api = localStorage !== null ? localStorage.api : null;
     vm.path = localStorage !== null ? localStorage.path : null;
     vm.api2 = vm.$filter('pluralize')(vm.api);
+    vm.Upload = Upload;
+    $scope.$watch('files', function () {
+      console.log($scope.files);
+        vm.upload($scope.files);
+    });
+    $scope.$watch('file', function () {
+      console.log($scope.file);
+        if ($scope.file != null) {
+            $scope.files = [$scope.file];
+        }
+    });
   }
+
+  uploadFiles(file){
+    console.log("File", file);
+    var vm = this;
+    if (!file.$error) {
+        vm.Upload.upload({
+            url: 'api/media',
+            data: {
+              // username: vm.username,
+              file: file[0]
+            }
+        }).then(function (resp) {
+           vm.item['image'] = window.location.origin + '/' + resp.data.path;
+        }, function (response) {
+            if (response.status > 0) {
+                vm.errorMsg = response.status + ': ' + response.data;
+            }
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 *
+                evt.loaded / evt.total);
+            vm.log = 'progress: ' + progressPercentage +
+              '% ' + evt.config.data.file.name + '\n' +
+              vm.log;
+            vm.progress =
+                  Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+      }
+  }
+
+  upload(files){
+      var vm = this;
+        if (files && files.length) {
+            for (var i = 0; i < files.length; i++) {
+              var file = files[i];
+              
+            }
+        }
+    }
 
 $onInit(){
   var vm = this;
@@ -67,13 +117,13 @@ $onInit(){
     var vm = this;
     vm.Modal.media()
     .then(function(answer) {
-        vm.item[index.field] = answer;
+        //vm.item[index.field] = answer;
     }, function() {
     });
   }
 }
 
-export default angular.module('mcrud.crudDetail', [filters])
+export default angular.module('mcrud.crudDetail', [ngFileUpload, filters])
   .component('crudDetail', {
     template: require('./detail.html'),
     controller: CrudDetailController,

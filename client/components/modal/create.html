@@ -25,7 +25,25 @@ class="md-whiteframe-z1">
 					<!-- When the field is Image type add URL postfix to labels -->
 					<md-input-container ng-cloak flex ng-switch-when="image" >
 						<label>{{i.heading | labelCase}} URL</label>
-						<input name="{{i.field}}" ng-model="create.item[i.field]" ng-disabled="i.noAdd" md-autofocus="$index===0">
+						<img style="max-height: 100px; max-width:100px;margin-top: 10px;" src="{{create.item[i.field]}}"/>
+						<input name="{{i.field}}" ng-model="create.item[i.field]" ng-disabled="i.noEdit" md-autofocus="$index === 0">
+						<br/>
+						<div style="position:absolute;margin-top:30px;" layout="column">
+							<div ngf-drop ngf-select="create.uploadFiles($files)" ngf-select ng-model="create.files" class="drop-box"
+									ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+									accept="image/*"
+									ngf-pattern="'image/*'">
+								<md-button tabindex="0"
+								class="md-button md-default-theme md-warn md-raised"
+								ngf-multiple="true"
+								aria-label="Open file select panel">
+									<ng-md-icon icon="cloud"></ng-md-icon> Select Files
+								</md-button>
+							</div>
+
+							<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+							<pre ng-if="detail.files[0].$error">Upload Log: {{f.$error}} {{f.$errorParam}}</pre>
+						</div>
 					</md-input-container>
 
 					<!-- When boolean type add an switch -->

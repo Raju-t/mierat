@@ -130,7 +130,7 @@ function LoginModalController($mdDialog, Auth, $state) {
     vm.close = close;
     vm.goForgot = goForgot;
     vm.$state = $state;
-    vm.user = { email: 'admin@codenx.com', password: 'codenx' };
+    vm.user = { email: '', password: '' };
     vm.errors = {};
     vm.submitted = false;
     vm.Auth = Auth;

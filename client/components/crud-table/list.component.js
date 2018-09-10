@@ -156,21 +156,23 @@ class CrudListController {
       delete d._id;
       vm.$http.post('/api/' + vm.api2, d)
         .then(function (response) {
-          vm.Toast.show({ type: 'success', text: 'The ' + vm.api + ' copied successfully.' });
+          let text = vm.name ? vm.name : vm.api;
+          vm.Toast.show({ type: 'success', text: 'The ' + text + ' copied successfully.' });
         })
         .catch(function (err) {
           if (err.type === 'demo') return
-
-          vm.Toast.show({ type: 'warn', text: 'Error while duplicating ' + vm.api });
+          let text = vm.name ? vm.name : vm.api;
+          vm.Toast.show({ type: 'warn', text: 'Error while duplicating ' + text });
         });
     })
   };
 
   delete(data) {
     var vm = this;
+    let text = vm.name ? vm.name : vm.api;
     var confirm = vm.$mdDialog.confirm()
-      .title('Would you like to delete the ' + vm.api + '?')
-      .ariaLabel('Confirm delete ' + vm.api)
+      .title('Would you like to delete the ' + text + '?')
+      .ariaLabel('Confirm delete ' + text)
       .ok('Yes')
       .cancel('No')
     vm.$mdDialog.show(confirm).then(function () {

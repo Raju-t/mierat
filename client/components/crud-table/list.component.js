@@ -146,9 +146,10 @@ class CrudListController {
   };
   copy(data) {
     var vm = this;
+    let text = vm.name ? vm.name : vm.api;
     var confirm = vm.$mdDialog.confirm()
-      .title('Would you like to copy the ' + vm.api + '?')
-      .ariaLabel('Confirm to copy ' + vm.api)
+      .title('Would you like to copy the ' + text + '?')
+      .ariaLabel('Confirm to copy ' + text)
       .ok('Yes')
       .cancel('No')
     vm.$mdDialog.show(confirm).then(function () {

@@ -402,6 +402,7 @@ table.md-table td.md-cell md-select > .md-select-value > span.md-select-icon:aft
           transform: scaleY(0.4) scaleX(0.8);
 }
 .detail-image {
-  max-height:400px;
+  max-height:350px;
+  width:auto;
   overflow-y:auto;
 }

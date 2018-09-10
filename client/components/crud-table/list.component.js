@@ -73,7 +73,7 @@ class CrudListController {
   </md-toolbar>
     <div class="">
       <div layout="row" class="md-whiteframe-z2">
-          <div>
+          <div class="margin-auto">
             <img class="detail-image" ng-src="{{$ctrl.img.path}}" draggable="false" alt="{{$ctrl.img.name}}" class="detail-image"/>
           </div>
       </div>

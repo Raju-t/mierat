@@ -34,7 +34,7 @@
 					<img style="max-height: 100px; max-width:100px;margin-top: 10px;" src="{{detail.item[i.field]}}"/>
 					<input name="{{i.field}}" ng-model="detail.item[i.field]" ng-disabled="i.noEdit" md-autofocus="$index === 0">
 					<br/>
-					<div style="position:absolute;margin-top:30px;" layout="column">
+					<div style="margin-top:30px;" layout="column">
 						<div ngf-drop ngf-select="detail.uploadFiles($files)" ngf-select ng-model="detail.files" class="drop-box"
 								ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
 								accept="image/*"

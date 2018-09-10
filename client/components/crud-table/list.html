@@ -60,12 +60,12 @@
 									<td>
 										<md-button class="md-icon-button" aria-label="More" ui-sref="crud.detail({itemId: crud._id, api: list.api, path:list.path, columns: list.cols, name: list.name})"
 										 ng-if="!list.no.edit">
-											<md-tooltip>Edit {{list.api | labelCase}} info</md-tooltip>
+											<md-tooltip>Edit {{list.name ? list.name : list.api | labelCase}} info</md-tooltip>
 											<ng-md-icon icon="edit"></ng-md-icon>
 										</md-button>
 										<md-button class="md-icon-button" aria-label="More" ui-sref="crud.showdetail({itemId: crud._id, api: list.api, path:list.path, columns: list.cols, name: list.name})"
 										 ng-if="true">
-											<md-tooltip>See {{list.api | labelCase}} info</md-tooltip>
+											<md-tooltip>See {{list.name ? list.name : list.api | labelCase}} info</md-tooltip>
 											<ng-md-icon icon="list"></ng-md-icon>
 										</md-button>
 									</td>
@@ -98,11 +98,11 @@
 									</td>
 									<td>
 										<md-button class="md-icon-button" aria-label="Copy Record" ng-click="list.copy(crud);" ng-if="!list.no.copy">
-											<md-tooltip>Duplicate this {{list.api | labelCase}}</md-tooltip>
+											<md-tooltip>Duplicate this {{list.name ? list.name : list.api | labelCase}}</md-tooltip>
 											<ng-md-icon icon="content_copy"></ng-md-icon>
 										</md-button>
 										<md-button class="md-icon-button" aria-label="Delete" ng-click="list.delete(crud);" ng-if="!list.no.delete">
-											<md-tooltip>Delete this {{list.api | labelCase}}</md-tooltip>
+											<md-tooltip>Delete this {{list.name ? list.name : list.api | labelCase}}</md-tooltip>
 											<ng-md-icon icon="delete"></ng-md-icon>
 										</md-button>
 									</td>

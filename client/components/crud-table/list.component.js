@@ -71,8 +71,7 @@ class CrudListController {
       </md-button>
     </div>
   </md-toolbar>
-  <md-dialog-content>
-    <div class="md-dialog-content">
+    <div class="">
       <div layout="row" class="md-whiteframe-z2">
         <div class="flexbox-container">
           <div>
@@ -80,7 +79,6 @@ class CrudListController {
           </div>
         </div>
       </div>
-  </md-dialog-content>
 </md-dialog>
 `,
     controller: function($scope, $mdDialog,$http) {

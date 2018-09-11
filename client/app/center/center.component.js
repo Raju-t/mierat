@@ -11,7 +11,7 @@ class CenterComponent  {
       {field: 'diamond_type', heading: 'Diamond Type', dataType: 'text'},
       {field: 'stone_ct_weight', heading: 'Stone CT Weight', dataType: 'number'},
       {field: 'stone_kt_weight', heading: 'Stone KT Weight', dataType: 'number'},
-      {field: 'notes', heading: 'Notes', dataType: 'number'},
+      {field: 'notes', heading: 'Notes', dataType: 'text'},
       {field: 'available', heading: 'Available', dataType: 'boolean'},
       {field: 'image', title: 'Thumbnail', dataType: 'image'}
     ];

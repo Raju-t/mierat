@@ -74,7 +74,7 @@ class CrudListController {
   <md-dialog-content>
     <div class="">
       <div layout="row" class="md-whiteframe-z2">
-        <div class="flexbox-container">
+        <div class="flexbox-container image-flex">
           <div>
             <img class="detail-image" ng-src="{{$ctrl.img.path}}" draggable="false" alt="{{$ctrl.img.name}}" class="detail-image"/>
           </div>

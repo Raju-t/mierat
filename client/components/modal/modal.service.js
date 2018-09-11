@@ -125,6 +125,7 @@ function ModalController($mdDialog, Toast, $http, options, cols, appConfig, $fil
 	           	  vm.item = {};
 	           }
 	           vm.item['image'] = window.location.origin + '/' + resp.data.path;
+	           vm.item['image_id'] = resp.data._id;
 	        }, function (response) {
 	            if (response.status > 0) {
 	                vm.errorMsg = response.status + ': ' + response.data;

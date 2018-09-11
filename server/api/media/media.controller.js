@@ -76,7 +76,12 @@ export function index(req, res) {
   //   .then(respondWithResult(res))
   //   .catch(handleError(res));
 
-  return Media.findAll()
+  return Media.findAll({
+    include: {
+      model: User,
+      as: 'user'
+    }
+  })
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
@@ -95,6 +100,7 @@ export function create(req, res) {
   req.files.file.uname = req.user.name
   req.files.file.uemail = req.user.email
   req.files.file.path = req.files.file.path.replace("client\\", "").replace('client/', '').replace('client//', '');
+  req.files.file.user_id = req.user._id
   return Media.create(req.files.file)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

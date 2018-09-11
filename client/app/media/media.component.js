@@ -59,8 +59,7 @@ export class MediaComponent {
               <li><strong>Image type:</strong> {{$ctrl.img.type}}</li>
               <li><strong>Image path:</strong> {{$ctrl.img.path}}</li>
               <li><strong>Date Uploaded:</strong> {{$ctrl.img.name}}</li>
-              <li><strong>Uploader Name:</strong> {{$ctrl.img.uname}}</li>
-              <li><strong>Uploader Email:</strong> {{$ctrl.img.uemail}}</li>
+              <li><strong>Uploader Email:</strong> {{$ctrl.img.user.email}}</li>
             </ul>
         	</div>
         </div>

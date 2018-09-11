@@ -11,7 +11,7 @@
 'use strict';
 
 import _ from 'lodash';
-import {Chain} from '../../sqldb';
+import {Chain, Media, User} from '../../sqldb';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -65,7 +65,16 @@ function handleError(res, statusCode) {
 
 // Gets a list of Chains
 export function index(req, res) {
-  return Chain.findAll()
+  return Chain.findAll({
+    include: {
+      model: Media,
+      as: 'media',
+      include: {
+        model: User,
+        as: 'user'
+      }
+    }
+  })
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

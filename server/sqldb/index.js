@@ -28,4 +28,12 @@ db.Center = db.sequelize.import('../api/center/center.model');
 db.Largeinitial = db.sequelize.import('../api/largeinitial/largeinitial.model');
 db.Smallinitial = db.sequelize.import('../api/smallinitial/smallinitial.model');
 
+db.Media.belongsTo(db.User, { foreignKey: 'user_id', as: 'user' });
+
+db.Charm.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
+db.Chain.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
+db.Center.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
+db.Largeinitial.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
+db.Smallinitial.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
+
 module.exports = db;

@@ -13,6 +13,7 @@ export default function(sequelize, DataTypes) {
     size: DataTypes.STRING,
     type: DataTypes.STRING,
     name: DataTypes.STRING,
-    active: DataTypes.BOOLEAN
+    active: DataTypes.BOOLEAN,
+    user_id: DataTypes.INTEGER
   });
 }

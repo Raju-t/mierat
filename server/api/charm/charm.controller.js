@@ -11,7 +11,7 @@
 'use strict';
 
 import _ from 'lodash';
-import {Charm} from '../../sqldb';
+import {Charm, Chain, Media} from '../../sqldb';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -65,7 +65,16 @@ function handleError(res, statusCode) {
 
 // Gets a list of Charms
 export function index(req, res) {
-  return Charm.findAll()
+  return Charm.findAll({
+    include: {
+      model: Media,
+      as: 'media',
+      include: {
+        model: User,
+        as: 'user'
+      }
+    }
+  })
     .then(respondWithResult(res))
     .catch(handleError(res));
 }

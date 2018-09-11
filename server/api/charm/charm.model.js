@@ -16,6 +16,7 @@ export default function (sequelize, DataTypes) {
     image: DataTypes.STRING,
     notes: DataTypes.TEXT,
     available: DataTypes.BOOLEAN,
+    image_id: DataTypes.INTEGER,
     updatedAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     modifiedBy: { type: Sequelize.DATE, defaultValue: Sequelize.NOW }

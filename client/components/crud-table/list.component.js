@@ -71,12 +71,25 @@ class CrudListController {
       </md-button>
     </div>
   </md-toolbar>
+  <md-dialog-content>
     <div class="">
       <div layout="row" class="md-whiteframe-z2">
-          <div class="margin-auto">
-            <img class="detail-image" ng-src="{{$ctrl.img.path}}" draggable="false" alt="{{$ctrl.img.name}}" class="detail-image"/>
+        <div class="flexbox-container">
+          <div>
+            <img ng-src="{{$ctrl.img.path}}" draggable="false" alt="{{$ctrl.img.name}}" class="detail-image"/>
           </div>
+          <div>
+            <ul>
+              <li><strong>Image Name:</strong> {{$ctrl.img.media.name}}</li>
+              <li><strong>Image Size:</strong> {{$ctrl.img.media.size}}</li>
+              <li><strong>Image type:</strong> {{$ctrl.img.media.type}}</li>
+              <li><strong>Image path:</strong> {{$ctrl.img.media.path}}</li>
+              <li><strong>Uploader Email:</strong> {{$ctrl.img.media.user.email}}</li>
+            </ul>
+          </div>
+        </div>
       </div>
+  </md-dialog-content>
 </md-dialog>
 `,
     controller: function($scope, $mdDialog,$http) {

@@ -11,7 +11,7 @@
 'use strict';
 
 import _ from 'lodash';
-import {Charm, Chain, Media} from '../../sqldb';
+import {Charm, User, Media} from '../../sqldb';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;

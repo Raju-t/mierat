@@ -38,10 +38,11 @@ function patchUpdates(patches) {
 function removeEntity(res) {
   return function (entity) {
     if (entity) {
-      return entity.remove()
+      return entity.destroy()
         .then(() => {
           const fs = require('fs');
           fs.unlink('client/' + entity.path, (err) => {
+            console.log(err);
             if (err) { }
           });
           res.status(204).end();
@@ -63,6 +64,7 @@ function handleEntityNotFound(res) {
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function (err) {
+    console.log(err);
     res.status(statusCode).send(err);
   };
 }

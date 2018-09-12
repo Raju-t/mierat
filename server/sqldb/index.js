@@ -30,10 +30,10 @@ db.Smallinitial = db.sequelize.import('../api/smallinitial/smallinitial.model');
 
 db.Media.belongsTo(db.User, { foreignKey: 'user_id', as: 'user' });
 
-db.Charm.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
-db.Chain.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
-db.Center.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
-db.Largeinitial.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
-db.Smallinitial.hasOne(db.Media, { foreignKey: '_id', as: 'media'});
+db.Charm.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
+db.Chain.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
+db.Center.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
+db.Largeinitial.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
+db.Smallinitial.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
 
 module.exports = db;

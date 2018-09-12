@@ -6,6 +6,8 @@
 
 import {EventEmitter} from 'events';
 var Chain = require('../../sqldb').Chain;
+var User = require('../../sqldb').User;
+var Media = require('../../sqldb').Media;
 var ChainEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
@@ -26,9 +28,27 @@ for(var e in events) {
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    ChainEvents.emit(event + ':' + doc._id, doc);
-    ChainEvents.emit(event, doc);
-    done(null);
+    Chain.findOne({
+      where: {
+        _id: doc._id
+      },
+      include: {
+        model: Media,
+        as: 'media',
+        include: {
+          model: User,
+          as: 'user'
+        }
+      }
+    })
+    .then( (record) => {
+      ChainEvents.emit(event + ':' + doc._id, record);
+      ChainEvents.emit(event, record);
+      done(null);  
+    })
+    .catch( (error) => {
+      done(null);
+    });
   };
 }
 

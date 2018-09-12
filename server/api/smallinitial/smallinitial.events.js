@@ -6,6 +6,8 @@
 
 import {EventEmitter} from 'events';
 var Smallinitial = require('../../sqldb').Smallinitial;
+var User = require('../../sqldb').User;
+var Media = require('../../sqldb').Media;
 var SmallEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
@@ -26,9 +28,27 @@ for(var e in events) {
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    SmallEvents.emit(event + ':' + doc._id, doc);
-    SmallEvents.emit(event, doc);
-    done(null);
+    Smallinitial.findOne({
+      where: {
+        _id: doc._id
+      },
+      include: {
+        model: Media,
+        as: 'media',
+        include: {
+          model: User,
+          as: 'user'
+        }
+      }
+    })
+    .then( (record) => {
+      SmallEvents.emit(event + ':' + doc._id, record);
+      SmallEvents.emit(event, record);
+      done(null);  
+    })
+    .catch( (error) => {
+      done(null);
+    });
   };
 }
 

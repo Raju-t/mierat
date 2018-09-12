@@ -6,6 +6,8 @@
 
 import {EventEmitter} from 'events';
 var Charm = require('../../sqldb').Charm;
+var User = require('../../sqldb').User;
+var Media = require('../../sqldb').Media;
 var CharmEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
@@ -26,9 +28,27 @@ for(var e in events) {
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    CharmEvents.emit(event + ':' + doc._id, doc);
-    CharmEvents.emit(event, doc);
-    done(null);
+    Charm.findOne({
+      where: {
+        _id: doc._id
+      },
+      include: {
+        model: Media,
+        as: 'media',
+        include: {
+          model: User,
+          as: 'user'
+        }
+      }
+    })
+    .then( (record) => {
+      CharmEvents.emit(event + ':' + doc._id, record);
+      CharmEvents.emit(event, record);
+      done(null);  
+    })
+    .catch( (error) => {
+      done(null);
+    });
   };
 }
 

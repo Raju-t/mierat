@@ -14,6 +14,7 @@ export default function(sequelize, DataTypes) {
     type: DataTypes.STRING,
     name: DataTypes.STRING,
     active: DataTypes.BOOLEAN,
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    created_at: DataTypes.DATE
   });
 }

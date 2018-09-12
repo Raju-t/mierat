@@ -72,11 +72,21 @@ class CrudListController {
     </div>
   </md-toolbar>
   <md-dialog-content>
-    <div class="">
+    <div class="md-dialog-content">
       <div layout="row" class="md-whiteframe-z2">
-        <div class="flexbox-container image-flex">
+        <div class="flexbox-container">
           <div>
-            <img class="detail-image" ng-src="{{$ctrl.img.path}}" draggable="false" alt="{{$ctrl.img.name}}" class="detail-image"/>
+            <img ng-src="{{$ctrl.img.path}}" draggable="false" alt="{{$ctrl.img.media.name}}" class="detail-image"/>
+          </div>
+          <div>
+            <ul>
+              <li><strong>Image Name:</strong> {{$ctrl.img.media.name}}</li>
+              <li><strong>Image Size:</strong> {{$ctrl.img.media.size}}</li>
+              <li><strong>Image type:</strong> {{$ctrl.img.media.type}}</li>
+              <li><strong>Image path:</strong> {{$ctrl.img.media.path}}</li>
+              <li><strong>Date Uploaded:</strong> {{$ctrl.img.media.created_at}}</li>
+              <li><strong>Uploader Email:</strong> {{$ctrl.img.media.user.email}}</li>
+            </ul>
           </div>
         </div>
       </div>

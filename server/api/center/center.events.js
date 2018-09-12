@@ -6,6 +6,8 @@
 
 import {EventEmitter} from 'events';
 var Center = require('../../sqldb').Center;
+var User = require('../../sqldb').User;
+var Media = require('../../sqldb').Media;
 var CenterEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
@@ -26,9 +28,27 @@ for(var e in events) {
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    CenterEvents.emit(event + ':' + doc._id, doc);
-    CenterEvents.emit(event, doc);
-    done(null);
+    Center.findOne({
+      where: {
+        _id: doc._id
+      },
+      include: {
+        model: Media,
+        as: 'media',
+        include: {
+          model: User,
+          as: 'user'
+        }
+      }
+    })
+    .then( (record) => {
+      CenterEvents.emit(event + ':' + doc._id, record);
+      CenterEvents.emit(event, record);
+      done(null);  
+    })
+    .catch( (error) => {
+      done(null);
+    });
   };
 }
 

@@ -11,7 +11,7 @@ export class LogoutComponent {
     $onInit() {
         var referrer = this.$state.params.referrer || this.$state.current.referrer || '/';
         this.Auth.logout();
-        this.$state.go(referrer);
+        this.$state.go('/login');
     }
 }
 

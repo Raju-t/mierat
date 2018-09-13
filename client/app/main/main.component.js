@@ -35,6 +35,13 @@ export class MainComponent {
 
 export default angular.module('materialCrudSqlApp.main', [uiRouter])
   .config(routes)
+  .run(function($rootScope, $cookies, $location, $state){
+    $rootScope.$on('$locationChangeStart', function (event, next, current) {
+      if(!$cookies.get('token')){
+        $location.path('/login');
+      }
+    });
+  })
   .component('main', {
     template: require('./main.html'),
     controller: MainComponent

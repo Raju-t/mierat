@@ -14,6 +14,7 @@ import ChainComponent from './../../app/chain/chain.component';
 import CenterComponent from './../../app/center/center.component';
 import LargeinitialComponent from './../../app/largeinitial/largeinitial.component';
 import SmallinitialComponent from './../../app/smallinitial/smallinitial.component';
+import LoginComponent from './../../app/login/login.component';
 
 class menuComponent {
   constructor(ToggleComponent, Auth, appConfig, LoginModal, CpModal, $state, $mdMedia) {
@@ -44,13 +45,13 @@ class menuComponent {
 }
 
 export default angular.module('materialCrudSqlApp.menu', [LoginModal, DocComponent, MediaComponent, AdminComponent,
-BookComponent, ContactComponent, TaskComponent, CustomerComponent, MovieComponent, CharmComponent, ChainComponent, CenterComponent, LargeinitialComponent, SmallinitialComponent])
+BookComponent, ContactComponent, TaskComponent, CustomerComponent, MovieComponent, CharmComponent, ChainComponent, CenterComponent, LargeinitialComponent, SmallinitialComponent, LoginComponent])
   .component('menu', {
     template: `
-    <md-button aria-label="Login / Signup" ng-click="$ctrl.showLogin()" ng-if="!$ctrl.isLoggedIn()">
+    <!-- <md-button aria-label="Login / Signup" ng-click="$ctrl.showLogin()" ng-if="!$ctrl.isLoggedIn()">
       <ng-md-icon icon="person" md-menu-align-target></ng-md-icon>
       <span hide-xs>Login / Signup</span>
-    </md-button>
+    </md-button> -->
     <md-menu>
     <md-button ng-click="$ctrl.openMenu($mdOpenMenu, $event)"  ng-show="$ctrl.isLoggedIn()">
       <ng-md-icon icon="face" md-menu-align-target ng-if="!$ctrl.getCurrentUser().avatar"></ng-md-icon>

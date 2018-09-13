@@ -9,30 +9,30 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    return queryInterface.addColumn('centers', 'lastModifiedBy', {
+    return queryInterface.addColumn('Centers', 'lastModifiedBy', {
       type: Sequelize.INTEGER,
       allowNull: true
     })
     .then( () => {
-      return queryInterface.addColumn('chains', 'lastModifiedBy', {
+      return queryInterface.addColumn('Chains', 'lastModifiedBy', {
         type: Sequelize.INTEGER,
         allowNull: true
       })
     })
     .then( () => {
-      return queryInterface.addColumn('charms', 'lastModifiedBy', {
+      return queryInterface.addColumn('Charms', 'lastModifiedBy', {
         type: Sequelize.INTEGER,
         allowNull: true
       })
     })
     .then( () => {
-      return queryInterface.addColumn('largeinitials', 'lastModifiedBy', {
+      return queryInterface.addColumn('Largeinitials', 'lastModifiedBy', {
         type: Sequelize.INTEGER,
         allowNull: true
       })
     })
     .then( () => {
-      return queryInterface.addColumn('smallinitials', 'lastModifiedBy', {
+      return queryInterface.addColumn('Smallinitials', 'lastModifiedBy', {
         type: Sequelize.INTEGER,
         allowNull: true
       })

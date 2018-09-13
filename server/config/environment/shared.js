@@ -3,7 +3,7 @@
 exports = module.exports = { // Can not put all settings here as this needs a restart to be applied (****verify****)
   demo: false,
   // List of user roles
-  userRoles: ['guest', 'user', 'manager', 'admin'], // This should be in ascending order of authority. e.g. In this case guest will not have access to any other role, where as admin will have the role of guest+user+vendor+manager+admin
+  userRoles: [/*'guest',*/ 'user', 'manager', 'admin'], // This should be in ascending order of authority. e.g. In this case guest will not have access to any other role, where as admin will have the role of guest+user+vendor+manager+admin
   mailOptions: {
     forgotPassword: function (body) {
       return {

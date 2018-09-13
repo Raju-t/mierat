@@ -10,7 +10,7 @@ import ngInfiniteScroll from 'ng-infinite-scroll';
 
 class CrudListController {
 
-  constructor($scope, socket, $state, $mdDialog, $stateParams, Modal, Toast, $http, $filter, appConfig) {
+  constructor($scope, socket, $state, $mdDialog, $stateParams, Modal, Toast, $http, $filter, appConfig, Auth) {
     /*@ngInject*/
     var vm = this;
     vm.$mdDialog = $mdDialog;
@@ -22,10 +22,10 @@ class CrudListController {
     vm.Toast = Toast;
     vm.socket = socket;
     vm.appConfig = appConfig;
+    vm.Auth = Auth;
     vm.l = 10;
     vm.sort = { predicate: vm.sort, reverse: false };
-
-
+    vm.Auth.getCurrentUserSync().$promise.then((user) => { vm.user = user; });
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates(vm.api);
     });

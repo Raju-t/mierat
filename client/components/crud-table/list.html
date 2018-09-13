@@ -101,7 +101,7 @@
 											<md-tooltip>Duplicate this {{list.name ? list.name : list.api | labelCase}}</md-tooltip>
 											<ng-md-icon icon="content_copy"></ng-md-icon>
 										</md-button>
-										<md-button class="md-icon-button" aria-label="Delete" ng-click="list.delete(crud);" ng-if="!list.no.delete">
+										<md-button ng-if="list.user.profile.role == 'admin'" class="md-icon-button" aria-label="Delete" ng-click="list.delete(crud);" ng-if="!list.no.delete">
 											<md-tooltip>Delete this {{list.name ? list.name : list.api | labelCase}}</md-tooltip>
 											<ng-md-icon icon="delete"></ng-md-icon>
 										</md-button>

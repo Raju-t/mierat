@@ -36,4 +36,10 @@ db.Center.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
 db.Largeinitial.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
 db.Smallinitial.belongsTo(db.Media, { foreignKey: 'image_id', as: 'media'});
 
+db.Charm.belongsTo(db.User, { foreignKey: 'lastModifiedBy', as: 'modifiedByUser'});
+db.Chain.belongsTo(db.User, { foreignKey: 'lastModifiedBy', as: 'modifiedByUser'});
+db.Center.belongsTo(db.User, { foreignKey: 'lastModifiedBy', as: 'modifiedByUser'});
+db.Largeinitial.belongsTo(db.User, { foreignKey: 'lastModifiedBy', as: 'modifiedByUser'});
+db.Smallinitial.belongsTo(db.User, { foreignKey: 'lastModifiedBy', as: 'modifiedByUser'});
+
 module.exports = db;

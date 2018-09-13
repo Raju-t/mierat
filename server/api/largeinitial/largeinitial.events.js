@@ -33,6 +33,8 @@ function emitEvent(event) {
         _id: doc._id
       },
       include: {
+        model: User,
+        as: 'lastModifiedBy',
         model: Media,
         as: 'media',
         include: {

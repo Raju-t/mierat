@@ -58,7 +58,7 @@ export class MediaComponent {
               <li><strong>Image Size:</strong> {{$ctrl.img.size}}</li>
               <li><strong>Image type:</strong> {{$ctrl.img.type}}</li>
               <li><strong>Image path:</strong> {{$ctrl.img.path}}</li>
-              <li><strong>Date Uploaded:</strong> {{$ctrl.img.name}}</li>
+              <li><strong>Date Uploaded:</strong> {{$ctrl.img.created_at | date: 'medium'}}</li>
               <li><strong>Uploader Email:</strong> {{$ctrl.img.user.email}}</li>
             </ul>
         	</div>

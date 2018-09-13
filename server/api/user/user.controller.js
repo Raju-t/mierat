@@ -86,7 +86,7 @@ export function forgot(req, res, next) {
 }
 
 export function index(req, res) {
-  return User.find({}, '-salt -password')
+  return User.findAll({})
     .then(users => {
       res.status(200).json(users);
     })

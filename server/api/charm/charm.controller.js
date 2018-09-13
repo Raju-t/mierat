@@ -11,7 +11,8 @@
 'use strict';
 
 import _ from 'lodash';
-import {Charm, User, Media} from '../../sqldb';
+import { Charm } from '../../sqldb';
+import { mediaUser } from '../../sqldb/includes';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -66,14 +67,7 @@ function handleError(res, statusCode) {
 // Gets a list of Charms
 export function index(req, res) {
   return Charm.findAll({
-    include: {
-      model: Media,
-      as: 'media',
-      include: {
-        model: User,
-        as: 'user'
-      }
-    }
+    include: mediaUser
   })
     .then(respondWithResult(res))
     .catch(handleError(res));
@@ -84,7 +78,8 @@ export function show(req, res) {
   return Charm.find({
     where: {
       _id: req.params.id
-    }
+    },
+    include: mediaUser
   })
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
@@ -93,6 +88,9 @@ export function show(req, res) {
 
 // Creates a new Charm in the DB
 export function create(req, res) {
+  if(req.user && req.user._id){
+    req.body.lastModifiedBy = req.user._id;
+  }
   return Charm.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
@@ -117,6 +115,9 @@ export function upsert(req, res) {
 export function patch(req, res) {
   if(req.body._id) {
     delete req.body._id;
+  }
+  if(req.user && req.user._id){
+    req.body.lastModifiedBy = req.user._id;
   }
   return Charm.find({
     where: {

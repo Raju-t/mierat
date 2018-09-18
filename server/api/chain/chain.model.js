@@ -16,6 +16,7 @@ export default function (sequelize, DataTypes) {
     updatedAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     modifiedBy: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
-    lastModifiedBy: DataTypes.INTEGER
+    lastModifiedBy: DataTypes.INTEGER,
+    price: DataTypes.INTEGER
   });
 }

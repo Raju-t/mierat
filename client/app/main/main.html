@@ -1,4 +1,4 @@
-<div layout="column" flex>
+<div layout="column" flex ng-if="$ctrl.user.profile.role == 'admin' || $ctrl.user.profile.role == 'manager'">
 <navbar leftmenu="true"></navbar>
 <md-content layout="column" class="main-column" layout-padding>
     <div layout-align="start center" layout="column">
@@ -13,4 +13,14 @@
 </md-content>
 <footer></footer>
 
+</div>
+
+<div layout="column" flex ng-if="!$ctrl.user || !$ctrl.user.profile || $ctrl.user.profile.role == 'user'">
+	<md-content>
+      <md-list flex>
+        <md-list-item ng-if="$ctrl.data && $ctrl.data.length" ng-repeat="image in $ctrl.data track by $index" class="md-3-line" ng-repeat="item in todos" ng-click="null">
+          <img ng-src="{{image}}" class="responsive-img new-image" />
+        </md-list-item>
+      </md-list>
+    </md-content>
 </div>

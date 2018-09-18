@@ -14,6 +14,7 @@ router.use(multiparty({ uploadDir: './client/uploads' }));
 
 router.post('/', auth.isAuthenticated(), multipartyMiddleware, controller.create);
 router.post('/profile', auth.isAuthenticated(), multipartyMiddleware, controller.updateProfile);
+router.get('/public_images', controller.public_images);
 router.get('/', auth.isAuthenticated(), controller.index);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.put('/:id', auth.isAuthenticated(), controller.upsert);

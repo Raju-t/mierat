@@ -7,9 +7,22 @@ import routes from './main.routes';
 
 export class MainComponent {
   /*@ngInject*/
-  constructor(appConfig) {
+  constructor(appConfig, Auth, $http) {
+    let vm = this;
     this.pages = [];
     this.pages = appConfig.menu.pages;
+    this.$http = $http;
+    Auth.getCurrentUserSync().$promise.then((user) => {
+     this.user = user; 
+     if(this.user.profile.role == 'user' || !this.user || !this.user.profile){
+      vm.$http.get('/api/media/public_images').then(function (res) {
+        vm.loading = false;
+        vm.data = res.data;
+      }, function (err) {
+        vm.handleError(err, vm)
+      });
+     }
+   });
   }
   getColor($index) {
     var _d = ($index + 1) % 11;

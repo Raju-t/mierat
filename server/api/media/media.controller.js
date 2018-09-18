@@ -11,7 +11,7 @@
 'use strict';
 
 import _ from 'lodash';
-import { Media, User } from '../../sqldb';
+import { Media, User, Chain, Charm, Center, Largeinitial, Smallinitial } from '../../sqldb';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
@@ -160,4 +160,23 @@ export function destroy(req, res) {
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
+}
+
+export function public_images(req, res){
+  let images = [];
+  Promise.all([
+      Chain.findAll(),
+      Charm.findAll(),
+      Center.findAll(),
+      Largeinitial.findAll(),
+      Smallinitial.findAll(),
+  ])
+  .then( (result) => {
+    for(let i=0; i<result.length; i++){
+      for(let k=0; k<result[i].length; k++){
+        images.push(result[i][k]['image']);
+      }
+    }
+    return res.status(200).send(images);
+  });
 }

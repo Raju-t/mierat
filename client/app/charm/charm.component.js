@@ -13,7 +13,8 @@ class CharmComponent {
       {field: 'stone_k_weight', title: 'Stone K Weight', dataType: 'number'},
       {field: 'notes', title: 'Notes', dataType: 'text'},
       {field: 'available', title: 'Available', dataType: 'boolean'},
-      {field: 'image', title: 'Thumbnail', dataType: 'image'}
+      {field: 'image', title: 'Thumbnail', dataType: 'image'},
+      {field: 'price', title: 'Price', dataType: 'number'}
     ];
   }
 }

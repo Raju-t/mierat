@@ -13,7 +13,8 @@ class CenterComponent  {
       {field: 'stone_kt_weight', heading: 'Stone KT Weight', dataType: 'number'},
       {field: 'notes', heading: 'Notes', dataType: 'text'},
       {field: 'available', heading: 'Available', dataType: 'boolean'},
-      {field: 'image', title: 'Thumbnail', dataType: 'image'}
+      {field: 'image', title: 'Thumbnail', dataType: 'image'},
+      {field: 'price', title: 'Price', dataType: 'number'}
     ];
   }
 }

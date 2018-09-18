@@ -9,7 +9,8 @@ class ChainComponent  {
       {field: 'color', heading: 'Color(Rose,Yellow, White)', dataType: 'text'},
       {field: 'notes', heading: 'Notes', dataType: 'text'},
       {field: 'available', title: 'Available', dataType: 'boolean'},
-      {field: 'image', title: 'Thumbnail', dataType: 'image'}
+      {field: 'image', title: 'Thumbnail', dataType: 'image'},
+      {field: 'price', title: 'Price', dataType: 'number'}
     ];
   }
 }

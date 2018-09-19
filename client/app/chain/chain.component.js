@@ -10,7 +10,7 @@ class ChainComponent  {
       {field: 'notes', heading: 'Notes', dataType: 'text'},
       {field: 'available', title: 'Available', dataType: 'boolean'},
       {field: 'image', title: 'Thumbnail', dataType: 'image'},
-      {field: 'price', title: 'Price', dataType: 'number'}
+      {field: 'price', title: 'Price', dataType: 'price'}
     ];
   }
 }

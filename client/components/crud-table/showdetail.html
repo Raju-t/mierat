@@ -21,6 +21,10 @@
 						<label><strong>{{i.heading | labelCase}}: </strong></label>
 						<span>{{showdetail.item[i.field]}}</span>
 					</md-list-item>
+					<md-list-item ng-switch-when="price">
+						<label><strong>{{i.heading | labelCase}}: </strong></label>
+						<span>${{showdetail.item[i.field]}}</span>
+					</md-list-item>
 					<md-list-item ng-switch-when="link">
 						<label><strong>{{i.heading | labelCase}}: </strong></label>
 						<span>{{showdetail.item[i.field]}}</span>

@@ -20,6 +20,10 @@
 					<label>{{i.heading | labelCase}}</label>
 					<input name="{{i.field}}" ng-model="detail.item[i.field]" ng-disabled="i.noEdit" only-numbers md-autofocus="$index === 0">
 				</md-input-container>
+				<md-input-container flex ng-switch-when="price">
+					<label>{{i.heading | labelCase}}</label>
+					<input name="{{i.field}}" ng-model="detail.item[i.field]" ng-disabled="i.noEdit" only-numbers md-autofocus="$index === 0">
+				</md-input-container>
 				<md-input-container flex ng-switch-when="link">
 					<label>{{i.heading | labelCase}}</label>
 					<input name="{{i.field}}" ng-model="detail.item[i.field]" ng-disabled="i.noEdit" md-autofocus="$index === 0">
@@ -89,12 +93,7 @@
 
 			</span>
 
-			<md-dialog-actions layout="row">
-				<span flex></span>
-				<md-button ng-disabled="detailForm.$invalid" type="submit" class="md-primary md-raised" aria-label="Save changes">Save</md-button>
-			</md-dialog-actions>
-
-			<md-button ng-if="detailForm.$dirty" type="submit" class="md-fab md-accent md-fab-bottom-right fab-overlap md-button ng-scope md-blue-theme"
+			<md-button type="submit" class="md-fab md-accent md-fab-bottom-right fab-overlap md-button ng-scope md-blue-theme"
 			 aria-label="Save">
 				<ng-md-icon icon="save"></ng-md-icon>
 			</md-button>

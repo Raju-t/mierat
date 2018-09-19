@@ -91,6 +91,9 @@ export function create(req, res) {
   if(req.user && req.user._id){
     req.body.lastModifiedBy = req.user._id;
   }
+  if(req.body.price){
+    req.body.price = Number(req.body.price).toFixed(2);
+  }
   return Charm.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
@@ -118,6 +121,9 @@ export function patch(req, res) {
   }
   if(req.user && req.user._id){
     req.body.lastModifiedBy = req.user._id;
+  }
+  if(req.body.price){
+    req.body.price = Number(req.body.price).toFixed(2);
   }
   return Charm.find({
     where: {

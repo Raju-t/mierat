@@ -14,7 +14,7 @@ class CenterComponent  {
       {field: 'notes', heading: 'Notes', dataType: 'text'},
       {field: 'available', heading: 'Available', dataType: 'boolean'},
       {field: 'image', title: 'Thumbnail', dataType: 'image'},
-      {field: 'price', title: 'Price', dataType: 'number'}
+      {field: 'price', title: 'Price', dataType: 'price'}
     ];
   }
 }

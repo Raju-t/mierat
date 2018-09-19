@@ -18,5 +18,11 @@ export default function (sequelize, DataTypes) {
     modifiedBy: { type: Sequelize.DATE, defaultValue: Sequelize.NOW },
     lastModifiedBy: DataTypes.INTEGER,
     price: DataTypes.INTEGER
+  }, {
+    hooks: {
+      beforeUpdate: (instance, options) => {
+        instance.modifiedBy = new Date();
+      }
+    }
   });
 }

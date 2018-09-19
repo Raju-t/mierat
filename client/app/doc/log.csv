@@ -133,7 +133,7 @@
 '2016-03-09' => Implemented user roles to each route. Optimized the login modal.
 '2016-03-08' => Filter menu redisgn
 '2016-03-08' => Upgraded user roles management at admin
-'2016-03-08' => Price slider now gets the actual value
+'2016-03-08' => Price($) slider now gets the actual value
 '2016-03-07' => PRoduct listing page designing
 '2016-03-04' => Changing product layout
 '2016-03-04' => Changed email text

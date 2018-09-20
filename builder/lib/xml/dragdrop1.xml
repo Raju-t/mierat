@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+    <events>
+        <event id="submit">
+			<click>
+				<function name="submit">this</function>
+			</click>
+		</event>
+		
+		 <event id="reset">
+			<click>
+				<function name="reset">this</function>
+			</click>
+		</event>
+		
+		<event id="sca">
+			<click>
+				<function name="sca">this</function>
+			</click>
+		</event>
+		
+		<event id="sma">
+			<click>
+				<function name="sma">this</function>
+			</click>
+		</event>
+    </events>
+
+    <image id="bg" x="0" y="0"><![CDATA[lib/assets/background1.png]]></image>
+	
+	<text id="title" x="180" y="30" width="430"><![CDATA[<h1>Drag & Drop #1</h1><p style="color:#fff">Interactive Builder.<br/>Drag each gem to area desired then Confirm.</p>]]></text>
+	
+	<!--drop zones. Note: should be lower stacking order to draggables-->
+	<box id="drop1" x="35" y="181" width="80" height="80" anim="none" />
+	<box id="drop2" x="121" y="360" width="80" height="80" anim="none" />
+	<box id="drop3" x="190" y="539" width="80" height="80" anim="none" />
+	<box id="drop4" x="267" y="710" width="80" height="80" anim="none" />
+	<box id="drop5" x="336" y="539" width="80" height="80" anim="none" />
+	<box id="drop6" x="420" y="360" width="80" height="80" anim="none" />
+	<box id="drop7" x="495" y="181" width="80" height="80" anim="none" />
+    <box id="drop8" x="100" y="520" width="80" height="80" anim="none" />
+
+	<!--draggables-->   	
+    <text id="drag1" x="105" y="800" width="80" anim="swing" animtime="1" animdelay="1.3" class="blueBox"><![CDATA[<img src="" alt="">]]></text>
+
+	<text id="drag2" x="205" y="800" width="80" anim="swing" animtime="10" animdelay="1" class="blueBox"><![CDATA[<img src="" alt="">]]></text>
+
+	<text id="drag3" x="285" y="800" width="80" anim="swing" animtime="1" animdelay="1.4" class="blueBox"><![CDATA[<img src="" alt="">]]></text>
+
+	<text id="drag4" x="405" y="800" width="80" anim="swing" animtime="1" animdelay="1.6" class="blueBox"><![CDATA[<img src="" alt="">]]></text>
+
+	<text id="drag5" x="105" y="880" width="80" anim="swing" animtime="1" animdelay="1.6" class="blueBox"><![CDATA[<img src="" alt="">]]></text>
+
+	<text id="drag6" x="205" y="880" width="80" anim="swing" animtime="1" animdelay="1.1" class="blueBox"><![CDATA[<img src="" alt="">]]></text>
+
+	<text id="drag7" x="305" y="880" width="80" anim="swing" animtime="1" animdelay="1.5" class="blueBox"><![CDATA[<img src="" alt="">]]></text>
+
+	<text id="drag8" x="405" y="880" width="80" anim="swing" animtime="1" animdelay="1.2" class="blueBox"><![CDATA[<img src="" alt="">]]></text> 
+	
+   
+	<!--buttons Add New Buttons here-->
+  
+  
+  <!--custom drag n drop here-->
+	
+    <custom id="custom" type="dragdrop">
+	
+        <settings dropscale="1" attempts="" forcedragall="true"/>
+
+        <drag match="1">drag1</drag>
+        <drag match="2">drag2</drag>
+        <drag match="3">drag3</drag>
+        <drag match="4">drag4</drag>
+        <drag match="5">drag5</drag>
+        <drag match="6">drag6</drag>
+        <drag match="7">drag7</drag>
+        <drag match="8">drag8</drag>
+		
+        <drop id="1" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop1</drop>
+        <drop id="2" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop2</drop>
+        <drop id="3" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop3</drop>
+        <drop id="4" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop4</drop>
+        <drop id="5" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop5</drop>
+        <drop id="6" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop6</drop>
+        <drop id="7" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop7</drop>
+        <drop id="8" dropposition="show" stack="false" stackpaddingv="0" stackpaddingh="0" maxdrop="1" xoffset="0" yoffset="0">drop8</drop>
+		
+		<!--feedbacks -->
+		<fb id="pass" event="">	
+			<text id="passTxt" x="420" y="586" width="400" anim="scaleup" animtime="1"><![CDATA[<p class="white">Perfect. Nicely done!</p>]]></text>
+		</fb>
+		
+		<fb id="partial" event="">	
+			<text id="partialTxt" x="540" y="576" width="400" anim="scaleup" animtime="1"><![CDATA[<p class="white">Houston, we have a problem!</p><p class="white">Select Reset</p>]]></text>	
+		</fb>
+		
+		<fb id="fail" event="">	
+			<text id="failTxt" x="540" y="576" width="400" anim="scaleup" animtime="1"><![CDATA[<p class="white">Houston, we have a problem!</p><p class="white">Select
+    </p>]]></text>	
+		</fb>
+		<!--/feedbacks -->
+    </custom>
+
+</data>
+

@@ -165,16 +165,15 @@ export function destroy(req, res) {
 export function public_images(req, res){
   let images = [];
   Promise.all([
-      Chain.findAll(),
-      Charm.findAll(),
-      Center.findAll(),
-      Largeinitial.findAll(),
-      Smallinitial.findAll(),
+      Center.findAll({
+        limit: 8,
+        order: [['createdAt', 'DESC']]
+      })
   ])
   .then( (result) => {
     for(let i=0; i<result.length; i++){
       for(let k=0; k<result[i].length; k++){
-        images.push(result[i][k]['image']);
+        images.push({price: result[i][k]['price'], image: result[i][k]['image']});
       }
     }
     return res.status(200).send(images);

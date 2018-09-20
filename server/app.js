@@ -8,6 +8,7 @@ import express from 'express';
 import sqldb from './sqldb';
 import config from './config/environment';
 import http from 'http';
+import cors from 'cors';
 
 // Populate databases with sample data
 if (config.seedDB) {
@@ -16,6 +17,7 @@ if (config.seedDB) {
 
 // Setup server
 var app = express();
+app.use(cors());
 var server = http.createServer(app);
 var socketio = require('socket.io')(server, {
   serveClient: config.env !== 'production',

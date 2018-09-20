@@ -34,8 +34,13 @@ function emitEvent(event) {
       include: mediaUser
     })
     .then( (record) => {
-      ChainEvents.emit(event + ':' + doc._id, record);
-      ChainEvents.emit(event, record);
+      if(record){
+        ChainEvents.emit(event + ':' + doc._id, record);
+        ChainEvents.emit(event, record);
+      } else {
+        ChainEvents.emit(event + ':' + doc._id, doc);
+        ChainEvents.emit(event, doc);
+      }
       done(null);  
     })
     .catch( (error) => {

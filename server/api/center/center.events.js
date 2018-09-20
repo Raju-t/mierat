@@ -34,8 +34,13 @@ function emitEvent(event) {
       include: mediaUser
     })
     .then( (record) => {
-      CenterEvents.emit(event + ':' + doc._id, record);
-      CenterEvents.emit(event, record);
+      if(record){
+        CenterEvents.emit(event + ':' + doc._id, record);
+        CenterEvents.emit(event, record);
+      } else {
+        CenterEvents.emit(event + ':' + doc._id, doc);
+        CenterEvents.emit(event, doc);
+      }
       done(null);  
     })
     .catch( (error) => {

@@ -44,8 +44,13 @@ function emitEvent(event) {
       }
     })
     .then( (record) => {
-      LargeEvents.emit(event + ':' + doc._id, record);
-      LargeEvents.emit(event, record);
+      if(record){
+        LargeEvents.emit(event + ':' + doc._id, record);
+        LargeEvents.emit(event, record);
+      } else {
+        LargeEvents.emit(event + ':' + doc._id, doc);
+        LargeEvents.emit(event, doc);
+      }
       done(null);  
     })
     .catch( (error) => {

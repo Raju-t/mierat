@@ -34,8 +34,13 @@ function emitEvent(event) {
       include: mediaUser
     })
     .then( (record) => {
-      CharmEvents.emit(event + ':' + doc._id, record);
-      CharmEvents.emit(event, record);
+      if(record){
+        CharmEvents.emit(event + ':' + doc._id, record);
+        CharmEvents.emit(event, record);
+      } else {
+        CharmEvents.emit(event + ':' + doc._id, doc);
+        CharmEvents.emit(event, doc);
+      }
       done(null);  
     })
     .catch( (error) => {
